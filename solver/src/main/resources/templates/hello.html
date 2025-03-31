@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/hello.css">
+    <link rel="stylesheet" href="../static/css/hello.css"
+    th:href="@{/css/hello.css}">
     <title>Hello</title>
 </head>
 <body>
+    <div class="logo">
+        <img src="../static/images/logo.png" th:src="@{/images/logo.png}" width="400" height="300" alt="">
+    </div>
 
     <h1>Einloggen in den 4Solver</h1>
-    <img src="../static/images/logo.png">
+    <h2>Login</h2>
+    <form method="post" th:action="@{/login}">
+        <label>Username: <input type="text" name="username"></label>
+        <label>Password: <input type="password" name="password"></label>
+        <button type="submit">Login</button>
+    </form>
+
+    <h3>Oder melde dich an mit</h3>
+    <a th:href="@{/oauth2/authorization/google}">Google</a>
+    <a th:href="@{/oauth2/authorization/apple}">Apple</a>
 </body>
 </html>
