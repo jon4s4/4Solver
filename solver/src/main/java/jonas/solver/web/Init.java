@@ -20,4 +20,9 @@ public class Init {
         model.addAttribute("email", token.getPrincipal().getAttribute("email"));
         return "profile";
     }
+
+    @GetMapping("/main")
+    public String main(){
+        return "main";
+    }
 }

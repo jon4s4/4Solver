@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../resources/static/css/main.css" />
+</head>
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="/">
+                <img src="../resources/static/images/logo-bgless.png" th:src="@{/images/logo-bgless.png}" alt="Logo" width="80">
+            </a>
+        </div>
+        <p>Element one</p>
+        <p> Element two</p>
+
+        <div class="menu">
+            <button id="menuButton">⋮</button>
+            <div class="dropdown" id="dropdownMenu">
+                <a href="/profile">Profil</a>
+                <a href="/settings">Einstellungen</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

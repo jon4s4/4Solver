@@ -19,10 +19,14 @@ public class SecurityConfig {
                 c -> c.requestMatchers("/", "/css/*", "/images/*").permitAll()
                         .anyRequest().authenticated()
         )
-                .oauth2Login(Customizer.withDefaults())
+                .oauth2Login(
+                        oauth -> oauth.loginPage("/")
+                                .defaultSuccessUrl("/main")
+                                .permitAll()
+                )
                 .formLogin(
-                        login -> login.loginPage("/login")
-                                .defaultSuccessUrl("/", true)
+                        login -> login.loginPage("/")
+                                .defaultSuccessUrl("/main")
                                 .permitAll()
                 )
                 .logout(logout -> logout.logoutUrl("/logout")
