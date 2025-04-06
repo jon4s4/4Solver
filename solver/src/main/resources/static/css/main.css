@@ -1,5 +1,6 @@
 body{
     background-color: #202020;
+    color: white;
 }
 p{
     color: #dddddd;
@@ -58,4 +59,39 @@ p{
 
 .dropdown a:hover {
     background-color: #e4e4e4;
+}
+
+.action-block {
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.action-block p {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.action-block button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.action-block button:hover {
+    background-color: #357abd;
 }
