@@ -62,30 +62,30 @@ p{
 }
 
 .action-block {
-    border: 2px solid #ddd;
+    border: 1px solid rgb(90, 90, 90);
     border-radius: 12px;
-    padding: 20px;
-    margin: 15px;
-    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    width: fit-content;
+    height:fit-content;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #00000000;
+    font-family:arial, "lucida console", sans-serif;
 }
 
 .action-block p {
-    font-weight: bold;
-    margin-bottom: 12px;
+    color: rgb(182, 182, 182);
 }
 
 .action-block button {
     display: block;
     width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    background-color: #4a90e2;
-    color: white;
+    margin: 2px 0;
+    background-color: #00000043;
+    color: rgb(206, 10, 91);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -93,5 +93,12 @@ p{
 }
 
 .action-block button:hover {
-    background-color: #357abd;
+    background-color: rgb(206, 10, 91);
+    color: white;
+}
+
+.table{
+    background-color: rgb(56, 109, 223);
+    text-shadow: 2px 2px #393939;
+    font-family:arial, "lucida console", sans-serif;
 }
