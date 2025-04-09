@@ -74,11 +74,6 @@ tr{
     border-radius: 12px;
     background-color: #242424;
     padding: 20px;
-    margin: 10px;
-    width: fit-content;
-    height:fit-content;
-    display: inline-block;
-    vertical-align: top;
     text-align: center;
     font-family:arial, "lucida console", sans-serif;
 }
