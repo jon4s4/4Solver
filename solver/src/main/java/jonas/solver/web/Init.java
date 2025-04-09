@@ -25,4 +25,5 @@ public class Init {
     public String main(){
         return "main";
     }
+
 }
