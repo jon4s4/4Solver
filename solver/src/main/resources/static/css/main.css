@@ -12,10 +12,12 @@ table, th, tr{
 tr{
     background-color: rgb(59, 104, 252);
 }
+input{
+    width: 50%;
+}
 
 .navbar {
     background-color: #1f1f1f;
-    color: white;
     padding: 5px 15px;
     height: 50px;
     display: flex;
@@ -42,11 +44,13 @@ tr{
 /* Styling für Icons (FontAwesome) */
 .icon {
     color: #ce0a5b;
+    background: none;
+    border: none;
     font-size: x-large;
 }
 
 .icon:hover {
-    color: #aaa;
+    color: #ffffff;
 }
 
 /* Dropdown bleibt wie gehabt */

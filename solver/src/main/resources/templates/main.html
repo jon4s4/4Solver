@@ -12,8 +12,8 @@
         <img src="../static/images/logo-bgless.png" th:src="@{/images/logo-bgless.png}" alt="Logo" width="50">
     </div>
     <div class="navbar-right">
-        <a href="/help" class="icon"><i class="fa fa-question-circle icon"></i></a>
-        <a href="/settings" class="icon"><i class="fa fa-cog icon"></i></a>
+        <a href="/help" class="icon"><i class="fa fa-question-circle"></i></a>
+        <a href="/settings" class="icon"><i class="fa fa-cog"></i></a>
         <div class="dropdown">
             <button class="dropdown-toggle">
                 <i class="fa fa-user-circle icon" style="font-size:x-large"></i> 
@@ -38,11 +38,21 @@
             <option>SB</option>
             <option>BB</option>
         </select>
-    </div>
+    </div><br>
+    <button class="icon">
+        <p>Previous round:</p>
+        <i class="fa fa-arrow-left"></i>
+    </button>
+    <button class="icon">
+        <p>Next round:</p>
+        <i class="fa fa-arrow-right"></i>
+    </button>
 
     <div class="actions">
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>UTG</u></p>
                 <button type="submit" value="fold">Fold</button>
                 <button type="submit" value="raise">Raise</button>
@@ -53,6 +63,8 @@
     
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>UTG1</u></p>
                 <button type="submit">Fold</button>
                 <button type="submit">Raise</button>
@@ -63,6 +75,8 @@
 
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>LJ</u></p>
                 <button type="submit">Fold</button>
                 <button type="submit">Raise</button>
@@ -73,6 +87,8 @@
 
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>HJ</u></p>
                 <button type="submit">Fold</button>
                 <button type="submit">Raise</button>
@@ -83,6 +99,8 @@
     
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>CO</u></p>
                 <button type="submit">Fold</button>
                 <button type="submit">Raise</button>
@@ -93,6 +111,8 @@
     
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>BTN</u></p>
                 <button type="submit">Fold</button>
                 <button type="submit">Raise</button>
@@ -103,6 +123,8 @@
     
         <div class="action-block">
             <form method="post" action="/main/action">
+                <label for="BB" id="BB">BB:</label>
+                <input type="text" name="BB" id="BB">
                 <p><u>SB</u></p>
                 <button type="submit" name="action" value="fold">Fold</button>
                 <button type="submit" name="action" value="raise">Raise</button>
@@ -112,6 +134,8 @@
         </div>
     
         <div class="action-block">
+            <label for="BB" id="BB">BB:</label>
+            <input type="text" name="BB" id="BB">
             <form method="post" action="/main/action">
                 <p><u>BB</u></p>
                 <button type="submit">Fold</button>
@@ -121,7 +145,9 @@
             </form>    
         </div>
     </div>
-
+    <button class="icon">
+        <i  class="fa fa-refresh"></i>
+    </button>
     <br>
 
     <table class="table">
