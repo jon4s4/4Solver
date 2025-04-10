@@ -14,66 +14,90 @@ tr{
 }
 
 .navbar {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 5px 15px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2e2e2e;
-    padding: 10px 20px;
-    border: 1px solid rgb(206, 10, 91);
-    border-radius: 10px;
+    font-size: 14px;
 }
 
-/* Logo */
-.logo img {
-    height: 50px;
+.logo {
+    height: 30px;
 }
 
-/* Menü-Button (drei Punkte) */
-.menu {
-    position: relative;
+.navbar-left {
+    display: flex;
+    align-items: center;
 }
 
-.menu-button {
-    font-size: 24px;
-    color: white;
-    cursor: crosshair;
-    padding: 5px 10px;
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Dropdown-Menü (standardmäßig versteckt) */
+/* Styling für Icons (FontAwesome) */
+.icon {
+    color: #ce0a5b;
+    font-size: x-large;
+}
+
+.icon:hover {
+    color: #aaa;
+}
+
+/* Dropdown bleibt wie gehabt */
 .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.dropdown-toggle img {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-menu {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    min-width: 150px;
+    top: 35px;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
 
-/* Dropdown-Menü anzeigen, wenn die Maus über das Menü fährt */
-.menu:hover .dropdown {
-    display: block;
-}
-
-/* Dropdown-Links */
-.dropdown a {
-    display: block;
-    padding: 10px;
-    color: black;
+.dropdown-menu a {
+    color: white;
+    padding: 10px 15px;
     text-decoration: none;
+    display: block;
 }
 
-.dropdown a:hover {
-    background-color: #e4e4e4;
+.dropdown-menu a:hover {
+    background-color: #333;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 .action-block {
     border: 1px solid rgb(155, 155, 155);
     border-radius: 12px;
     background-color: #242424;
     padding: 20px;
+    margin: 10px;
     text-align: center;
     font-family:arial, "lucida console", sans-serif;
 }
@@ -96,7 +120,7 @@ tr{
 }
 
 .action-block button:hover {
-    background-color: rgb(206, 10, 91);
+    background-color: #ce0a5b;
     color: white;
 }
 

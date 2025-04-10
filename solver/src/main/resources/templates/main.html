@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <title>Main</title>
     <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar">
-
-        <div class="logo">
-            <a href="/">
-                <img src="../static/images/logo-bgless.png" th:src="@{/images/logo-bgless.png}" alt="Logo" width="80">
-            </a>
-        </div>
-        <p>Element one</p>
-        <p> Element two</p>
-
-        <div class="menu">
-            <button id="menuButton">⋮</button>
-            <div class="dropdown" id="dropdownMenu">
-                <a href="/profile">Profil</a>
-                <a href="/settings">Einstellungen</a>
-                <a href="/logout">Logout</a>
+<div class="navbar">
+    <div class="navbar-left">
+        <img src="../static/images/logo-bgless.png" th:src="@{/images/logo-bgless.png}" alt="Logo" width="50">
+    </div>
+    <div class="navbar-right">
+        <a href="/help" class="icon"><i class="fa fa-question-circle icon"></i></a>
+        <a href="/settings" class="icon"><i class="fa fa-cog icon"></i></a>
+        <div class="dropdown">
+            <button class="dropdown-toggle">
+                <i class="fa fa-user-circle icon" style="font-size:x-large"></i> 
+            </button>
+            <div class="dropdown-menu">
+                <a href="#">Profil</a>
+                <a href="#">Logout</a>
             </div>
         </div>
-    </nav>
+    </div>
+</div>
+
+    <div>
+        <p>Your Position:</p>
+        <select>
+            <option>UTG</option>
+            <option>UTG1</option>
+            <option>LJ</option>
+            <option>HJ</option>
+            <option>CO</option>
+            <option>BTN</option>
+            <option>SB</option>
+            <option>BB</option>
+        </select>
+    </div>
 
     <div class="actions">
         <div class="action-block">
@@ -37,6 +51,26 @@
             </form>    
         </div>
     
+        <div class="action-block">
+            <form method="post" action="/main/action">
+                <p><u>UTG1</u></p>
+                <button type="submit">Fold</button>
+                <button type="submit">Raise</button>
+                <button type="submit">Call</button>
+                <button type="submit">AllIn</button>
+            </form>    
+        </div>
+
+        <div class="action-block">
+            <form method="post" action="/main/action">
+                <p><u>LJ</u></p>
+                <button type="submit">Fold</button>
+                <button type="submit">Raise</button>
+                <button type="submit">Call</button>
+                <button type="submit">AllIn</button>
+            </form>    
+        </div>
+
         <div class="action-block">
             <form method="post" action="/main/action">
                 <p><u>HJ</u></p>
