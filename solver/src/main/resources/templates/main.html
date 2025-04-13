@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
@@ -54,10 +54,10 @@
                 <label for="BB" id="BB">BB:</label>
                 <input type="text" name="BB" id="BB">
                 <p><u>UTG</u></p>
-                <button type="submit" value="fold">Fold</button>
-                <button type="submit" value="raise">Raise</button>
-                <button type="submit" value="call">Call</button>
-                <button type="submit" value="allin">AllIn</button>
+                <button type="submit" name="action" value="fold">Fold</button>
+                <button type="submit" name="action" value="raise">Raise</button>
+                <button type="submit" name="action" value="call">Call</button>
+                <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
     
@@ -66,10 +66,10 @@
                 <label for="BB" id="BB">BB:</label>
                 <input type="text" name="BB" id="BB">
                 <p><u>UTG1</u></p>
-                <button type="submit">Fold</button>
-                <button type="submit">Raise</button>
-                <button type="submit">Call</button>
-                <button type="submit">AllIn</button>
+                <button type="submit" name="action" value="fold">Fold</button>
+                <button type="submit" name="action" value="raise">Raise</button>
+                <button type="submit" name="action" value="call">Call</button>
+                <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
 
@@ -78,10 +78,10 @@
                 <label for="BB" id="BB">BB:</label>
                 <input type="text" name="BB" id="BB">
                 <p><u>LJ</u></p>
-                <button type="submit">Fold</button>
-                <button type="submit">Raise</button>
-                <button type="submit">Call</button>
-                <button type="submit">AllIn</button>
+                <button type="submit" name="action" value="fold">Fold</button>
+                <button type="submit" name="action" value="raise">Raise</button>
+                <button type="submit" name="action" value="call">Call</button>
+                <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
 
@@ -90,10 +90,10 @@
                 <label for="BB" id="BB">BB:</label>
                 <input type="text" name="BB" id="BB">
                 <p><u>HJ</u></p>
-                <button type="submit">Fold</button>
-                <button type="submit">Raise</button>
-                <button type="submit">Call</button>
-                <button type="submit">AllIn</button>
+                <button type="submit" name="action" value="fold">Fold</button>
+                <button type="submit" name="action" value="raise">Raise</button>
+                <button type="submit" name="action" value="call">Call</button>
+                <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
     
@@ -102,10 +102,10 @@
                 <label for="BB" id="BB">BB:</label>
                 <input type="text" name="BB" id="BB">
                 <p><u>CO</u></p>
-                <button type="submit">Fold</button>
-                <button type="submit">Raise</button>
-                <button type="submit">Call</button>
-                <button type="submit">AllIn</button>
+                <button type="submit" name="action" value="fold">Fold</button>
+                <button type="submit" name="action" value="raise">Raise</button>
+                <button type="submit" name="action" value="call">Call</button>
+                <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
     
@@ -114,10 +114,10 @@
                 <label for="BB" id="BB">BB:</label>
                 <input type="text" name="BB" id="BB">
                 <p><u>BTN</u></p>
-                <button type="submit">Fold</button>
-                <button type="submit">Raise</button>
-                <button type="submit">Call</button>
-                <button type="submit">AllIn</button>
+                <button type="submit" name="action" value="fold">Fold</button>
+                <button type="submit" name="action" value="raise">Raise</button>
+                <button type="submit" name="action" value="call">Call</button>
+                <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
     
@@ -141,7 +141,7 @@
                 <button type="submit">Fold</button>
                 <button type="submit">Raise</button>
                 <button type="submit">Call</button>
-                <button type="submit">AllIn</button>
+                <button type="submit">All-In</button>
             </form>    
         </div>
     </div>
@@ -150,50 +150,74 @@
     </button>
     <br>
 
-    <table class="table">
 
-        <tbody>
-            <tr>
-                <td>AA</td><td>AKs</td><td>AQs</td><td>AJs</td><td>ATs</td><td>A9s</td><td>A8s</td><td>A7s</td><td>A6s</td><td>A5s</td><td>A4s</td><td>A3s</td><td>A2s</td>
-            </tr>
-            <tr>
-                <td>AKo</td><td>KK</td><td>KQs</td><td>KJs</td><td>KTs</td><td>K9s</td><td>K8s</td><td>K7s</td><td>K6s</td><td>K5s</td><td>K4s</td><td>K3s</td><td>K2s</td>
-            </tr>
-            <tr>
-                <td>AQo</td><td>KQo</td><td>QQ</td><td>QJs</td><td>QTs</td><td>Q9s</td><td>Q8s</td><td>Q7s</td><td>Q6s</td><td>Q5s</td><td>Q4s</td><td>Q3s</td><td>Q2s</td>
-            </tr>
-            <tr>
-                <td>AJo</td><td>KJo</td><td>QJo</td><td>JJ</td><td>JTs</td><td>J9s</td><td>J8s</td><td>J7s</td><td>J6s</td><td>J5s</td><td>J4s</td><td>J3s</td><td>J2s</td>
-            </tr>
-            <tr>
-                <td>ATo</td><td>KTo</td><td>QTo</td><td>JTo</td><td>TT</td><td>T9s</td><td>T8s</td><td>T7s</td><td>T6s</td><td>T5s</td><td>T4s</td><td>T3s</td><td>T2s</td>
-            </tr>
-            <tr>
-                <td>A9o</td><td>K9o</td><td>Q9o</td><td>J9o</td><td>T9o</td><td>99</td><td>98s</td><td>97s</td><td>96s</td><td>95s</td><td>94s</td><td>93s</td><td>92s</td>
-            </tr>
-            <tr>
-                <td>A8o</td><td>K8o</td><td>Q8o</td><td>J8o</td><td>T8o</td><td>98o</td><td>88</td><td>87s</td><td>86s</td><td>85s</td><td>84s</td><td>83s</td><td>82s</td>
-            </tr>
-            <tr>
-                <td>A7o</td><td>K7o</td><td>Q7o</td><td>J7o</td><td>T7o</td><td>97o</td><td>87o</td><td>77</td><td>76s</td><td>75s</td><td>74s</td><td>73s</td><td>72s</td>
-            </tr>
-            <tr>
-                <td>A6o</td><td>K6o</td><td>Q6o</td><td>J6o</td><td>T6o</td><td>96o</td><td>86o</td><td>76o</td><td>66</td><td>65s</td><td>64s</td><td>63s</td><td>62s</td>
-            </tr>
-            <tr>
-                <td>A5o</td><td>K5o</td><td>Q5o</td><td>J5o</td><td>T5o</td><td>95o</td><td>85o</td><td>75o</td><td>65o</td><td>55</td><td>54s</td><td>53s</td><td>52s</td>
-            </tr>
-            <tr>
-                <td>A4o</td><td>K4o</td><td>Q4o</td><td>J4o</td><td>T4o</td><td>94o</td><td>84o</td><td>74o</td><td>64o</td><td>54o</td><td>44</td><td>43s</td><td>42s</td>
-            </tr>
-            <tr>
-                <td>A3o</td><td>K3o</td><td>Q3o</td><td>J3o</td><td>T3o</td><td>93o</td><td>83o</td><td>73o</td><td>63o</td><td>53o</td><td>43o</td><td>33</td><td>32s</td>
-            </tr>
-            <tr>
-                <td>A2o</td><td>K2o</td><td>Q2o</td><td>J2o</td><td>T2o</td><td>92o</td><td>82o</td><td>72o</td><td>62o</td><td>52o</td><td>42o</td><td>32o</td><td>22</td>
-            </tr>
-        </tbody>
-    </table>
+    <button class="tablink" onclick="openPage('UTG', this, 'red')">UTG</button>
+    <button class="tablink" onclick="openPage('UTG1', this, 'red')">UTG1</button>
+    <button class="tablink" onclick="openPage('LJ', this, 'red')">LJ</button>
+    <button class="tablink" onclick="openPage('HJ', this, 'red')">HJ</button>
+    <button class="tablink" onclick="openPage('CO', this, 'red')">CO</button>
+    <button class="tablink" onclick="openPage('BTN', this, 'green')">BTN</button>
+    <button class="tablink" onclick="openPage('SB', this, 'blue')">SB</button>
+    <button class="tablink" onclick="openPage('BB', this, 'orange')" id="defaultOpen">BB</button>
     
+    <div id="UTG" class="tabcontent">
+      <h3>UTG</h3>
+      <p>Idiot reggin</p>
+    </div>
+    
+    <div id="UTG1" class="tabcontent">
+      <h3>UTG1</h3>
+      <p>lol</p> 
+    </div>
+    
+    <div id="LJ" class="tabcontent">
+      <h3>LJ</h3>
+      <p>Get in touch, or swing by for a cup of coffee.</p>
+    </div>
+    
+    <div id="HJ" class="tabcontent">
+      <h3>HJ</h3>
+      <p>Who we are and what we do.</p>
+    </div>
+    <div id="CO" class="tabcontent">
+        <h3>CO</h3>
+        <p>Who we are and what we do.</p>
+    </div>
+
+    <div id="BTN" class="tabcontent">
+        <h3>BTN</h3>
+        <p>Who we are and what we do.</p>
+    </div>
+    <div id="SB" class="tabcontent">
+        <h3>SB</h3>
+        <p>Who we are and what we do.</p>
+    </div>
+    
+    <div id="BB" class="tabcontent">
+        <h3>BB</h3>
+        <p>Who we are and what we do.</p>
+    </div>
+
+    <div th:replace="fragments/cardTable :: tableFragment"></div>
+
+
+    <script>
+        function openPage(pageName,elmnt,color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+          }
+          document.getElementById(pageName).style.display = "block";
+          elmnt.style.backgroundColor = color;
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
 </body>
 </html>
