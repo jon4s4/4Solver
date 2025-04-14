@@ -1,12 +1,24 @@
 package jonas.solver.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import jonas.solver.domain.model.Position;
 
 @Controller
 public class Init {
+
+    @ModelAttribute("Positionen")
+    public List<Position> allePositions(){
+        return List.of(Position.UTG, Position.LJ, Position.HJ, Position.CO,
+        Position.BTN, Position.SB, Position.BB);
+    }
     
     @GetMapping("/")
     public String index(){
@@ -23,6 +35,7 @@ public class Init {
 
     @GetMapping("/main")
     public String main(){
+
         return "main";
     }
 
