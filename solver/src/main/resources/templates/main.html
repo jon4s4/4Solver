@@ -25,134 +25,55 @@
         </div>
     </div>
 </div>
+    
+    <div class="rounds">
+        <div>
+            <p>Your Position:</p>
+            <select>
+                <div th:each="p : ${Positionen}">
+                    <option th:text="${p}"></option>
+                </div>
+            </select>
+        </div>
+        <div>
+            <p>Previous round:</p>
+            <button class="icon">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+        </div>
+        <div>
+            <p>Next round:</p>
+            <button class="icon">
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
 
-    <div>
-        <p>Your Position:</p>
-        <select>
-            <option>UTG</option>
-            <option>UTG1</option>
-            <option>LJ</option>
-            <option>HJ</option>
-            <option>CO</option>
-            <option>BTN</option>
-            <option>SB</option>
-            <option>BB</option>
-        </select>
-    </div><br>
-    <button class="icon">
-        <p>Previous round:</p>
-        <i class="fa fa-arrow-left"></i>
-    </button>
-    <button class="icon">
-        <p>Next round:</p>
-        <i class="fa fa-arrow-right"></i>
-    </button>
+    <br>
 
-    <div class="actions">
+    <div class="actions" th:each="p : ${Positionen}">
         <div class="action-block">
             <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>UTG</u></p>
+                <label for="stack">Stack:</label>
+                <input type="text" name="stack">
+                <u><p th:text="${p}"></p></u>
                 <button type="submit" name="action" value="fold">Fold</button>
                 <button type="submit" name="action" value="raise">Raise</button>
                 <button type="submit" name="action" value="call">Call</button>
                 <button type="submit" name="action" value="allin">All-In</button>
             </form>    
         </div>
-    
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>UTG1</u></p>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>    
-        </div>
+    </div>
 
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>LJ</u></p>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>    
-        </div>
-
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>HJ</u></p>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>    
-        </div>
-    
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>CO</u></p>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>    
-        </div>
-    
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>BTN</u></p>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>    
-        </div>
-    
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="BB" id="BB">BB:</label>
-                <input type="text" name="BB" id="BB">
-                <p><u>SB</u></p>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>   
-        </div>
-    
-        <div class="action-block">
-            <label for="BB" id="BB">BB:</label>
-            <input type="text" name="BB" id="BB">
-            <form method="post" action="/main/action">
-                <p><u>BB</u></p>
-                <button type="submit">Fold</button>
-                <button type="submit">Raise</button>
-                <button type="submit">Call</button>
-                <button type="submit">All-In</button>
-            </form>    
-        </div>
     </div>
     <button class="icon">
         <i  class="fa fa-refresh"></i>
     </button>
-
-    <p th:each="p : ${Positionen}" th:text="${p}">Vier</p>
+    <br>
     <div th:each="p : ${Positionen}" class="buttons">
-        <button type="button"><p th:text="${p}"></p></button>
-        <h2 th:text="${p}"></h2>
+        <div>
+            <button type="button"><p th:text="${p}"></p></button>
+        </div>
     </div>
 </body>
 </html>

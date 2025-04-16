@@ -66,20 +66,14 @@ input{
     padding: 5px;
 }
 
-.dropdown-toggle img {
-    width: 20px;
-    height: 20px;
-}
-
 .dropdown-menu {
     display: none;
-    position: absolute;
+    position:absolute;
     right: 0;
     top: 35px;
     background-color: #1f1f1f;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
 }
 
 .dropdown-menu a {
@@ -96,29 +90,50 @@ input{
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+.actions{
+    display: inline-block;
+}
 .action-block {
+    width: 80px;
+    padding: 4px;
+    margin: 24;
     border: 1px solid rgb(155, 155, 155);
     border-radius: 12px;
     background-color: #242424;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    font-family:arial, "lucida console", sans-serif;
+    font-family: arial, "lucida console", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-block input {
+    width: 90%;
+    padding: 4px;
+    margin-bottom: 6px;
+    font-size: 0.8em;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
 }
 
 .action-block p {
     color: rgb(228, 228, 228);
+    font-size: 0.9em;
+    margin: 4px 0;
+    text-align: center;
 }
 
 .action-block button {
-    display: block;
-    width: 100%;
+    width: 100%; /* ❗️Button füllt Blockbreite */
+    padding: 2px;
     margin: 2px 0;
     background-color: #4e4e4e2a;
     color: rgb(206, 10, 91);
-    padding: 10px;
     border: none;
     border-radius: 6px;
+    font-size: 0.85em;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -128,16 +143,23 @@ input{
     color: white;
 }
 
+
 .table{
     margin-right: auto;
     text-shadow: 1px 1px #393939;
     font-family:arial, "lucida console", sans-serif;
 }
-.actions{
-    display: flex;
-    justify-content: center;
-}
 
+.buttons{
+    display: inline-block;
+}
 .buttons p{
     color: #1f1f1f;
+}
+.rounds{
+    display: flex;
+    justify-content: space-evenly;
+}
+.rounds p{
+    margin: auto;
 }
