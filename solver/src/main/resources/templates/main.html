@@ -51,17 +51,31 @@
 
     <br>
 
-    <div class="actions" th:each="p : ${Positionen}">
-        <div class="action-block">
-            <form method="post" action="/main/action">
-                <label for="stack">Stack:</label>
-                <input type="text" name="stack">
-                <u><p th:text="${p}"></p></u>
-                <button type="submit" name="action" value="fold">Fold</button>
-                <button type="submit" name="action" value="raise">Raise</button>
-                <button type="submit" name="action" value="call">Call</button>
-                <button type="submit" name="action" value="allin">All-In</button>
-            </form>    
+    <div class="action-blocks">
+        <div th:each="p : ${Positionen}">
+            <div class="action-block">
+                <form method="post" action="/main/action">
+                    <label for="stack">Stack:</label>
+                    <input type="text" name="stack">
+                    <u><p th:text="${p}"></p></u>
+                    <button type="submit" name="action" value="fold">Fold</button>
+                    <button type="submit" name="action" value="raise">Raise</button>
+                    <button type="submit" name="action" value="call">Call</button>
+                    <button type="submit" name="action" value="allin">All-In</button>
+                </form>   
+            </div>
+            <!-- <div class="action-block">
+                <form method="post" action="/main/action">
+                    <label for="stack">Stack:</label>
+                    <input type="text" name="stack">
+                    <u><p th:text="${p}"></p></u>
+                    <button type="submit" name="action" value="fold">Fold</button>
+                    <button type="submit" name="action" value="raise">Raise</button>
+                    <button type="submit" name="action" value="call">Call</button>
+                    <button type="submit" name="action" value="allin">All-In</button>
+                </form>   
+            </div> -->
+    
         </div>
     </div>
 
@@ -70,10 +84,10 @@
         <i  class="fa fa-refresh"></i>
     </button>
     <br>
-    <div th:each="p : ${Positionen}" class="buttons">
+    <!-- <div th:each="p : ${Positionen}" class="buttons">
         <div>
             <button type="button"><p th:text="${p}"></p></button>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
