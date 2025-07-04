@@ -41,7 +41,6 @@ input{
     gap: 15px;
 }
 
-/* Styling für Icons (FontAwesome) */
 .icon {
     color: #ce0a5b;
     background: none;
@@ -53,7 +52,6 @@ input{
     color: #ffffff;
 }
 
-/* Dropdown bleibt wie gehabt */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -92,7 +90,13 @@ input{
 }
 
 .actions{
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.main-layout{
+    display: flex;
+    align-items: flex-start;
 }
 .action-block {
     width: 80px;
@@ -126,7 +130,7 @@ input{
 }
 
 .action-block button {
-    width: 100%; /* ❗️Button füllt Blockbreite */
+    width: 100%;
     padding: 2px;
     margin: 2px 0;
     background-color: #4e4e4e2a;
@@ -162,4 +166,54 @@ input{
 }
 .rounds p{
     margin: auto;
+}
+
+.tableSettings{
+    width: 220px;
+    min-height: 100vh;
+    background-color: #1f1f1f;
+    padding: 10px;
+    color: white;
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.tableSettings a,
+.tableSettings summary{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.tableSettings button {
+    background:#2a2a2a;
+    color:#ddd;
+    border:none;
+    padding:6px 12px;
+    margin:2px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:background 0.2s;
+}
+
+.tableSettings button:hover { background:#444; }
+
+.tableSettings button.selected {
+    background:#ce0a5b;
+    color:#fff;
+}
+.tableSettings p{
+    font-size: large;
+}
+
+
+details a{
+    padding-left: 20px;
+    background-color: #2a2a2a;
+    font-size: 0.95em;
 }

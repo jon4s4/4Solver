@@ -1,6 +1,5 @@
 package jonas.solver.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -34,7 +33,11 @@ public class Init {
     }
 
     @GetMapping("/main")
-    public String main(){
+    public String main(Model model){
+        model.addAttribute("format", "");
+        model.addAttribute("solution", "");
+        model.addAttribute("players", 0);
+
 
         return "main";
     }

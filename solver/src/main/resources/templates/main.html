@@ -5,6 +5,8 @@
     <title>Main</title>
     <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="../static/images/apple-touch-icon.png"
+        th:href="@{/images/apple-touch-icon.png}">
 </head>
 <body>
 <div class="navbar">
@@ -26,7 +28,7 @@
     </div>
 </div>
     
-    <div class="rounds">
+    <!-- <div class="rounds">
         <div>
             <p>Your Position:</p>
             <select>
@@ -47,11 +49,79 @@
                 <i class="fa fa-arrow-right"></i>
             </button>
         </div>
-    </div>
+    </div> -->
 
     <br>
 
+    <div class="main-layout">
+        <nav class="tableSettings">
+    <details open>
+        <summary><p class="fa fa-gear"> Change</p></summary>
+
+        <form method="get" action="/table/format">
+            <input type="hidden" name="solution" th:value="${solution}" />
+            <input type="hidden" name="players" th:value="${players}" />
+
+            <p>Game Format</p>
+
+            <button type="submit" name="format" value="cash"
+                    th:classappend="${format}=='cash' ? 'selected'">Cash</button>
+
+            <button type="submit" name="format" value="mtt"
+                    th:classappend="${format}=='mtt' ? 'selected'">MTT</button>
+
+            <button type="submit" name="format" value="spinandgo"
+                    th:classappend="${format}=='spinandgo' ? 'selected'">Spin & Go</button>
+
+            <button type="submit" name="format" value="husng"
+                    th:classappend="${format}=='husng' ? 'selected'">HU SnG</button>
+        </form>
+
+        <form method="get" action="/table/format">
+            <input type="hidden" name="format" th:value="${format}" />
+            <input type="hidden" name="players" th:value="${players}" />
+
+            <p>Solutions</p>
+
+            <button type="submit" name="solution" value="HU"
+                    th:classappend="${solution}=='HU' ? 'selected'">Heads‑up</button>
+
+            <button type="submit" name="solution" value="ChipEV"
+                    th:classappend="${solution}=='ChipEV' ? 'selected'">ChipEV</button>
+
+            <button type="submit" name="solution" value="ICM"
+                    th:classappend="${solution}=='ICM' ? 'selected'">ICM</button>
+
+            <button type="submit" name="solution" value="Events"
+                    th:classappend="${solution}=='Events' ? 'selected'">Events</button>
+        </form>
+
+        <form method="get" action="/table/format">
+            <input type="hidden" name="solution" th:value="${solution}" />
+            <input type="hidden" name="format" th:value="${format}" />
+
+            <p>Players</p>
+
+            <button type="submit"  name="players" value="3"
+                    th:classappend="${players}==3 ? 'selected'">3</button>
+            <button type="submit"  name="players" value="4"
+                    th:classappend="${players}==4 ? 'selected'">4</button>
+            <button type="submit"  name="players" value="5"
+                    th:classappend="${players}==5 ? 'selected'">5</button>
+            <button type="submit"  name="players" value="6"
+                    th:classappend="${players}==6 ? 'selected'">6</button>
+            <button type="submit"  name="players" value="7"
+                    th:classappend="${players}==7 ? 'selected'">7</button>
+            <button type="submit"  name="players" value="8"
+                    th:classappend="${players}==8 ? 'selected'">8</button>
+            <button type="submit"  name="players" value="9"
+                    th:classappend="${players}==9 ? 'selected'">9</button>
+        </form>
+    </details>
+</nav>
+
     <div class="actions" th:each="p : ${Positionen}">
+        
         <div class="action-block">
             <form method="post" action="/main/action">
                 <label for="stack">Stack:</label>
@@ -64,6 +134,8 @@
             </form>    
         </div>
     </div>
+</div>
+
 
     </div>
     <button class="icon">
