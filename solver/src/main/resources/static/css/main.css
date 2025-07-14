@@ -82,19 +82,8 @@ input{
     display: block;
 }
 
-<<<<<<< HEAD
-.actions{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-}
-.main-layout{
-    display: flex;
-    align-items: flex-start;
-=======
 .action-blocks{
     display: flex;
->>>>>>> d28a0f28a4d9a3ab945c09620962ace8dfbaafd8
 }
 .action-block {
     padding: 4px;
@@ -155,57 +144,6 @@ input{
     margin: auto;
 }
 
-<<<<<<< Updated upstream
-.tableSettings{
-    width: 220px;
-    min-height: 100vh;
-    background-color: #1f1f1f;
-    padding: 10px;
-    color: white;
-    padding: 10px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: sans-serif;
-}
-
-.tableSettings a,
-.tableSettings summary{
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-.tableSettings button {
-    background:#2a2a2a;
-    color:#ddd;
-    border:none;
-    padding:6px 12px;
-    margin:2px;
-    border-radius:6px;
-    cursor:pointer;
-    transition:background 0.2s;
-}
-
-.tableSettings button:hover { background:#444; }
-
-.tableSettings button.selected {
-    background:#ce0a5b;
-    color:#fff;
-}
-.tableSettings p{
-    font-size: large;
-}
-
-
-details a{
-    padding-left: 20px;
-    background-color: #2a2a2a;
-    font-size: 0.95em;
-}
-=======
 .hand-range {
     border-collapse: collapse;
     margin: 20px auto;
@@ -246,4 +184,3 @@ details a{
     font-weight: bold;
 }
 
->>>>>>> Stashed changes
