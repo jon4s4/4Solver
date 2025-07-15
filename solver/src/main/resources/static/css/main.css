@@ -5,6 +5,9 @@ body{
 p{
     color: #dddddd;
 }
+tr{
+    background-color: rgb(59, 104, 252);
+}
 input{
     width: 50%;
 }
@@ -144,6 +147,54 @@ input{
     margin: auto;
 }
 
+.tableSettings{
+    width: 220px;
+    background-color: #1f1f1f;
+    padding: 10px;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.tableSettings a,
+.tableSettings summary{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.tableSettings button {
+    background:#2a2a2a;
+    color:#ddd;
+    border:none;
+    padding:6px 12px;
+    margin:2px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:background 0.2s;
+}
+
+.tableSettings button:hover { background:#444; }
+
+.tableSettings button.selected {
+    background:#ce0a5b;
+    color:#fff;
+}
+.tableSettings p{
+    font-size: large;
+}
+
+
+details a{
+    padding-left: 20px;
+    background-color: #2a2a2a;
+    font-size: 0.95em;
+}
+
 .hand-range {
     border-collapse: collapse;
     margin: 20px auto;
@@ -161,26 +212,10 @@ input{
     font-weight: normal;
 }
 
-/* Farblich hervorheben */
 .hand-range td {
-    background-color: #2a2a2a;
     color: white;
 }
 
-.hand-range td:contains("s") {
-    background-color: #1e88e5; /* suited: blau */
-}
+.pair{ background-color: #e53935; }
 
-.hand-range td:contains("o") {
-    background-color: #43a047; /* offsuit: grün */
-}
-
-.hand-range td:contains("AA"),
-.hand-range td:contains("KK"),
-.hand-range td:contains("QQ"),
-.hand-range td:contains("JJ"),
-.hand-range td:contains("TT") {
-    background-color: #e53935; /* Premium Paare: rot */
-    font-weight: bold;
-}
-
+.suited{ background-color: #43a047; }
