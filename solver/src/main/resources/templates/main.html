@@ -120,26 +120,26 @@
             </details>
         </nav>
 
-            <div class="actions" th:each="p : ${Positionen}">
-                
-                <div class="action-block">
-                    <form method="post" action="/main/action">
-                        <label for="stack">Stack:</label>
-                        <input type="text" name="stack">
-                        <u><p th:text="${p}"></p></u>
-                        <button type="submit" name="action" value="fold">Fold</button>
-                        <button type="submit" name="action" value="raise">Raise</button>
-                        <button type="submit" name="action" value="call">Call</button>
-                        <button type="submit" name="action" value="allin">All-In</button>
-                    </form>    
-                </div>
+        <div class="action-blocks">
+            <div class="action-block" th:each="p : ${Positionen}">
+                <form method="post" action="/main/action">
+                    <label for="stack">Stack:</label>
+                    <input type="text" name="stack">
+                    <u><p th:text="${p}"></p></u>
+                    <button type="submit" name="action" value="fold">Fold</button>
+                    <button type="submit" name="action" value="raise">Raise</button>
+                    <button type="submit" name="action" value="call">Call</button>
+                    <button type="submit" name="action" value="allin">All-In</button>
+                </form>   
             </div>
+        </div>
+        
     </div>
 
     <table class="hand-range">
         <tbody>
             <tr><td class="pair">AA</td><td class="suited">AKs</td><td class="suited">AQs</td><td class="suited">AJs</td><td class="suited">ATs</td><td class="suited">A9s</td><td class="suited">A8s</td><td class="suited">A7s</td><td class="suited">A6s</td><td class="suited">A5s</td><td class="suited">A4s</td><td class="suited">A3s</td><td class="suited">A2s</td></tr>
-            <tr><td>AKo</td><td class="pair">KK</td><td class="suited">KQs</td><td class="suited">KJs</td><td class="suited" class="suited" class="suited">KTs</td><td class="suited">K9s</td><td class="suited" class="suited">K8s</td><td class="suited" class="suited">K7s</td><td class="suited" class="suited">K6s</td><td class="suited" class="suited">K5s</td><td class="suited" class="suited">K4s</td><td class="suited" class="suited">K3s</td><td class="suited" class="suited">K2s</td></tr>
+            <tr><td>AKo</td><td class="pair">KK</td><td class="suited">KQs</td><td class="suited">KJs</td><td class="suited">KTs</td><td class="suited">K9s</td><td class="suited" >K8s</td><td class="suited" >K7s</td><td class="suited" >K6s</td><td class="suited">K5s</td><td class="suited">K4s</td><td class="suited">K3s</td><td class="suited">K2s</td></tr>
             <tr><td>AQo</td><td>KQo</td><td class="pair">QQ</td><td class="suited">QJs</td><td class="suited">QTs</td><td class="suited">Q9s</td><td class="suited">Q8s</td><td class="suited">Q7s</td><td class="suited">Q6s</td><td class="suited">Q5s</td><td class="suited">Q4s</td><td class="suited">Q3s</td><td class="suited">Q2s</td></tr>
             <tr><td>AJo</td><td>KJo</td><td>QJo</td><td class="pair">JJ</td><td class="suited">JTs</td><td class="suited">J9s</td><td class="suited">J8s</td><td class="suited">J7s</td><td class="suited">J6s</td><td class="suited">J5s</td><td class="suited">J4s</td><td class="suited">J3s</td><td class="suited">J2s</td></tr>
             <tr><td>ATo</td><td>KTo</td><td>QTo</td><td>JTo</td><td class="pair">TT</td><td class="suited">T9s</td><td class="suited">T8s</td><td class="suited">T7s</td><td class="suited">T6s</td><td class="suited">T5s</td><td class="suited">T4s</td><td class="suited">T3s</td><td class="suited">T2s</td></tr>
