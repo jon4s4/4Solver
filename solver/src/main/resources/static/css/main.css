@@ -5,10 +5,6 @@ body{
 p{
     color: #dddddd;
 }
-table, th, tr{
-    width: 50%;
-    height: 80px;
-}
 tr{
     background-color: rgb(59, 104, 252);
 }
@@ -147,13 +143,6 @@ input{
     color: white;
 }
 
-
-.table{
-    margin-right: auto;
-    text-shadow: 1px 1px #393939;
-    font-family:arial, "lucida console", sans-serif;
-}
-
 .buttons{
     display: inline-block;
 }
@@ -170,12 +159,10 @@ input{
 
 .tableSettings{
     width: 220px;
-    min-height: 100vh;
     background-color: #1f1f1f;
     padding: 10px;
     color: white;
     padding: 10px;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
@@ -217,3 +204,28 @@ details a{
     background-color: #2a2a2a;
     font-size: 0.95em;
 }
+
+.hand-range {
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.hand-range th,
+.hand-range td {
+    border: 1px solid #555;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.85em;
+    font-weight: normal;
+}
+
+.hand-range td {
+    color: white;
+}
+
+.pair{ background-color: #e53935; }
+
+.suited{ background-color: #43a047; }

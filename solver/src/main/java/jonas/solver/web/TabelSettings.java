@@ -16,7 +16,7 @@ import jonas.solver.domain.model.Position;
 public class TabelSettings {
     @ModelAttribute("Positionen")
     public List<Position> allePositions(){
-        return List.of(Position.UTG, Position.LJ, Position.HJ, Position.CO,
+        return List.of(Position.UTG,Position.UTG1, Position.LJ, Position.HJ, Position.CO,
         Position.BTN, Position.SB, Position.BB);
     }
     
