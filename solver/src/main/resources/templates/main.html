@@ -91,7 +91,7 @@
                     <p>Solutions</p>
 
                     <button type="submit" name="solution" value="HU"
-                            th:classappend="${solution}=='HU' ? 'selected'">Heads‑up</button>
+                            th:classappend="${solution}=='HU' ? 'selected'">Heads-up</button>
 
                     <button type="submit" name="solution" value="ChipEV"
                             th:classappend="${solution}=='ChipEV' ? 'selected'">ChipEV</button>
@@ -128,15 +128,19 @@
         </nav>
 
         <div class="action-blocks">
-            <div class="action-block" th:each="p : ${Positionen}">
-                <form method="post" action="/main/action">
+            <div class="action-block" th:each="p : ${positionen}">
+                <form method="get" action="/main/action">
                     <label for="stack">Stack:</label>
                     <input type="text" name="stack">
                     <u><p th:text="${p}"></p></u>
-                    <button type="submit" name="action" value="fold">Fold</button>
-                    <button type="submit" name="action" value="raise">Raise</button>
-                    <button type="submit" name="action" value="call">Call</button>
-                    <button type="submit" name="action" value="allin">All-In</button>
+                    <button type="submit" name="action" value="fold"
+                        th:classappend="${action}=='fold' ? 'selected'">Fold</button>
+                    <button type="submit" name="action" value="raise"
+                     th:classappend="${action}=='raise' ? 'selected'">Raise</button>
+                    <button type="submit" name="action" value="call"
+                    th:classappend="${action}=='call' ? 'selected'">Call</button>
+                    <button type="submit" name="action" value="allin"
+                    th:classappend="${action}=='allin' ? 'selected'">All-In</button>
                 </form>   
             </div>
         </div>

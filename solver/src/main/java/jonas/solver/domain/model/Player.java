@@ -4,9 +4,13 @@ public class Player {
     Action action;
     Hand hand;
     Position position;
-    int stack;
+    int stackSize;
 
     public Player() {
+    }
+
+    public Player(Position position) {
+        this.position = position;
     }
 
     public Action getAction() {
@@ -26,5 +30,15 @@ public class Player {
     }
     public void setPosition(Position position) {
         this.position = position;
-    }    
+    }
+
+    public int getStackSize() {
+        return stackSize;
+    }
+
+    public void setStackSize(int stackSize) {
+        this.stackSize = stackSize;
+    }
+    
+
 }
