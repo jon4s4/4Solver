@@ -37,6 +37,11 @@ input{
     gap: 15px;
 }
 
+.navbar-middle{
+    display: flex;
+    gap: 50px;
+}
+
 .icon {
     color: #ce0a5b;
     background: none;

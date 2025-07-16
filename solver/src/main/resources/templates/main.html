@@ -12,7 +12,15 @@
 <div class="navbar">
     <div class="navbar-left">
         <img src="../static/images/logo-bgless.png" th:src="@{/images/logo-bgless.png}" alt="Logo" width="50">
+        <p>4Solver</p>
     </div>
+
+    <div class="navbar-middle">
+        <p>Play</p>
+        <p>Practice</p>
+    </div>
+
+
     <div class="navbar-right">
         <a href="/help" class="icon"><i class="fa fa-question-circle"></i></a>
         <a href="/settings" class="icon"><i class="fa fa-cog"></i></a>
@@ -51,7 +59,6 @@
         </div>
     </div> -->
 
-    <br>
 
     <div class="main-layout">
         <nav class="tableSettings">
@@ -71,10 +78,10 @@
                             th:classappend="${format}=='mtt' ? 'selected'">MTT</button>
 
                     <button type="submit" name="format" value="spinandgo"
-                            th:classappend="${format}=='spinandgo' ? 'selected'">Spin & Go</button>
-
+                            th:classappend="${format}=='spinandgo' ? 'selected'">Spin & Go</button>
+<!-- 
                     <button type="submit" name="format" value="husng"
-                            th:classappend="${format}=='husng' ? 'selected'">HU SnG</button>
+                            th:classappend="${format}=='husng' ? 'selected'">HU SnG</button> -->
                 </form>
 
                 <form method="get" action="/table/format">

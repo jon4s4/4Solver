@@ -1,6 +1,6 @@
 package jonas.solver.domain.model;
 
-public enum Color {
+public enum Suit {
     Heart,
     Space,
     Club,

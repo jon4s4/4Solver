@@ -37,7 +37,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
+        UserDetails user = User.withDefaultPasswordEncoder() // change deprecated method
                 .username("admin")
                 .password("password")
                 .roles("USER")
