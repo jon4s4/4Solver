@@ -6,11 +6,10 @@ public class Player {
     Position position;
     int stackSize;
 
-    public Player() {
-    }
 
-    public Player(Position position) {
+    public Player(Position position, Action action) {
         this.position = position;
+        this.action = action;
     }
 
     public Action getAction() {

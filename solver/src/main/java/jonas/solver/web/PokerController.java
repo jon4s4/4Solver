@@ -8,10 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
-import jonas.solver.domain.model.Position;
+import org.springframework.web.context.annotation.SessionScope;
+
+import jonas.solver.domain.model.Player;
 import jonas.solver.domain.service.GameService;
 
 @Controller
+@SessionScope
 public class PokerController {
     private final GameService gameService;
     
@@ -19,9 +22,9 @@ public class PokerController {
         this.gameService = gameService;
     }
 
-    @ModelAttribute("positionen")
-    public List<Position> allPositions(){
-        return gameService.getPositionen();
+    @ModelAttribute("allPlayers")
+    public List<Player> allPositions(){
+        return gameService.getPlayers();
     }
 
     @GetMapping("/")
