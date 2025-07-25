@@ -139,6 +139,11 @@ input{
     color: white;
 }
 
+.action-blocks button.selected {
+    background:#ce0a5b;
+    color:#fff;
+}
+
 .buttons{
     display: inline-block;
 }

@@ -85,12 +85,6 @@ public class PokerController {
         }
         model.addAttribute("allPlayers", allPlayers);
 
-        for(Player p: allPlayers){
-            System.out.println("Action: " + p.getAction());
-            System.out.println("Position: " + p.getPosition());
-        }
-
-
         return "main";
     }
 

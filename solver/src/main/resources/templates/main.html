@@ -135,12 +135,16 @@
                     <label for="stack">Stack:</label>
                     <input type="text" name="stack" value="100">
                     <u><p th:text="${p.position}"></p></u>
+
                     <button type="submit" name="action" value="fold"
                         th:classappend="${action}=='fold' ? 'selected'">Fold</button>
+
                     <button type="submit" name="action" value="raise"
                      th:classappend="${action}=='raise' ? 'selected'">Raise</button>
+
                     <button type="submit" name="action" value="call"
                     th:classappend="${action}=='call' ? 'selected'">Call</button>
+                    
                     <button type="submit" name="action" value="allin"
                     th:classappend="${action}=='allin' ? 'selected'">All-In</button>
                 </form>   
