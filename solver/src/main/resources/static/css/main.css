@@ -143,6 +143,10 @@ input{
     background:#ce0a5b;
     color:#fff;
 }
+.active {
+    border: 2px solid #ce0a5b;
+    /* background-color: #e6ffe6; */
+}
 
 .buttons{
     display: inline-block;

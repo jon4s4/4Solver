@@ -127,8 +127,21 @@
             </details>
         </nav>
 
+
+        <div>
+            <form method="post" action="/main/reset">
+                <button class="icon" type="submit">
+                    <i class="fa fa-refresh"></i>
+                </button>
+            </form>
+        </div>
+
+
         <div class="action-blocks">
-            <div class="action-block" th:each="p : ${allPlayers}">
+            <div class="action-block"
+                th:each="p : ${allPlayers}"
+                th:classappend="${currentPlayer != null and p.position == currentPlayer.position} ? ' active'">
+
                 <form method="post" action="/main/action">
                     <input type="hidden" name="position" th:value="${p.position}">
 
@@ -136,17 +149,17 @@
                     <input type="text" name="stack" value="100">
                     <u><p th:text="${p.position}"></p></u>
 
-                    <button type="submit" name="action" value="fold"
-                        th:classappend="${action}=='fold' ? 'selected'">Fold</button>
+                <button type="submit" name="action" value="FOLD"
+                    th:classappend="${p.action?.name() == 'FOLD'} ? ' selected'">Fold</button>
 
-                    <button type="submit" name="action" value="raise"
-                     th:classappend="${action}=='raise' ? 'selected'">Raise</button>
+                <button type="submit" name="action" value="RAISE"
+                    th:classappend="${p.action?.name() == 'RAISE'} ? ' selected'">Raise</button>
 
-                    <button type="submit" name="action" value="call"
-                    th:classappend="${action}=='call' ? 'selected'">Call</button>
-                    
-                    <button type="submit" name="action" value="allin"
-                    th:classappend="${action}=='allin' ? 'selected'">All-In</button>
+                <button type="submit" name="action" value="CALL"
+                    th:classappend="${p.action?.name() == 'CALL'} ? ' selected'">Call</button>
+
+                <button type="submit" name="action" value="ALLIN"
+                    th:classappend="${p.action?.name() == 'ALLIN'} ? ' selected'">All-In</button>
                 </form>   
             </div>
         </div>

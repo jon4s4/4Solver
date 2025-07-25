@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import jonas.solver.domain.model.Action;
 import jonas.solver.domain.model.Player;
 import jonas.solver.domain.model.Position;
 import jonas.solver.domain.service.GameService;
@@ -26,7 +25,7 @@ public class PokerController {
     }
 
     @ModelAttribute("allPlayers")
-    public List<Player> allPositions(){
+    public List<Player> allPlayers(){
         return gameService.getPlayers();
     }
 
@@ -43,14 +42,17 @@ public class PokerController {
         return "profile";
     }
 
-    @GetMapping("/main")
-    public String main(Model model){
-        model.addAttribute("format", "");
-        model.addAttribute("solution", "");
-        model.addAttribute("players", 0);
+@GetMapping("/main")
+public String main(Model model){
+    model.addAttribute("format", "");
+    model.addAttribute("solution", "");
+    model.addAttribute("players", 0);
+    model.addAttribute("currentPlayer", gameService.getCurrentPlayer());
+    model.addAttribute("allPlayers", gameService.getPlayers());
 
-        return "main";
-    }
+    return "main";
+}
+
 
     @GetMapping("/table/format")
     public String changeFormat(@RequestParam(value = "format", required = false) String format,
@@ -66,24 +68,20 @@ public class PokerController {
     }
 
     @PostMapping("/main/action")
-    public String makeAction(@ModelAttribute("allPlayers") List<Player> allPlayers, @RequestParam("action") String action,
+    public String makeAction(@RequestParam("action") String action,
     @RequestParam("stack") int stack, @RequestParam("position") String positionName, Model model){
-        Position position = Position.valueOf(positionName.toUpperCase());
-        int selectedIndex = -1;
 
-        for(int i = 0; i < allPlayers.size(); i++){
-            Player p = allPlayers.get(i);
-            if(p.getPosition() == position){
-                selectedIndex = i;
-                p.setAction(Action.valueOf(action.toUpperCase()));
-            }
-        }
-        for(int i = 0; i < selectedIndex; i++){
-            if(allPlayers.get(i).getAction() == null){
-                allPlayers.get(i).setAction(Action.FOLD);
-            }
-        }
-        model.addAttribute("allPlayers", allPlayers);
+        gameService.processAction(positionName, action);
+
+        model.addAttribute("allPlayers", gameService.getPlayers());
+        model.addAttribute("currentPlayer", gameService.getCurrentPlayer());
+
+        return "main";
+    }
+
+    @PostMapping("/main/reset")
+    public String resetActions(){
+        gameService.resetActions();
 
         return "main";
     }
