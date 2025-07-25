@@ -7,14 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import jonas.solver.domain.model.Action;
 import jonas.solver.domain.model.Player;
+import jonas.solver.domain.model.Position;
 import jonas.solver.domain.service.GameService;
 
 @Controller
-@SessionScope
+@SessionAttributes("allPlayers")
 public class PokerController {
     private final GameService gameService;
     
@@ -58,6 +61,35 @@ public class PokerController {
         model.addAttribute("format", format);
         model.addAttribute("solution", solution);
         model.addAttribute("players", players);
+
+        return "main";
+    }
+
+    @PostMapping("/main/action")
+    public String makeAction(@ModelAttribute("allPlayers") List<Player> allPlayers, @RequestParam("action") String action,
+    @RequestParam("stack") int stack, @RequestParam("position") String positionName, Model model){
+        Position position = Position.valueOf(positionName.toUpperCase());
+        int selectedIndex = -1;
+
+        for(int i = 0; i < allPlayers.size(); i++){
+            Player p = allPlayers.get(i);
+            if(p.getPosition() == position){
+                selectedIndex = i;
+                p.setAction(Action.valueOf(action.toUpperCase()));
+            }
+        }
+        for(int i = 0; i < selectedIndex; i++){
+            if(allPlayers.get(i).getAction() == null){
+                allPlayers.get(i).setAction(Action.FOLD);
+            }
+        }
+        model.addAttribute("allPlayers", allPlayers);
+
+        for(Player p: allPlayers){
+            System.out.println("Action: " + p.getAction());
+            System.out.println("Position: " + p.getPosition());
+        }
+
 
         return "main";
     }

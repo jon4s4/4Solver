@@ -128,11 +128,13 @@
         </nav>
 
         <div class="action-blocks">
-            <div class="action-block" th:each="p : ${positionen}">
-                <form method="get" action="/main/action">
+            <div class="action-block" th:each="p : ${allPlayers}">
+                <form method="post" action="/main/action">
+                    <input type="hidden" name="position" th:value="${p.position}">
+
                     <label for="stack">Stack:</label>
-                    <input type="text" name="stack">
-                    <u><p th:text="${p}"></p></u>
+                    <input type="text" name="stack" value="100">
+                    <u><p th:text="${p.position}"></p></u>
                     <button type="submit" name="action" value="fold"
                         th:classappend="${action}=='fold' ? 'selected'">Fold</button>
                     <button type="submit" name="action" value="raise"
