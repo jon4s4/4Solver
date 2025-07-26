@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="../static/images/apple-touch-icon.png"
         th:href="@{/images/apple-touch-icon.png}">
+    <link rel="stylesheet" th:href="@{/main.css}" href="../static/main.css"/>
 </head>
 <body>
 <div class="navbar">
@@ -146,8 +147,40 @@
                     <input type="hidden" name="position" th:value="${p.position}">
 
                     <label for="stack">Stack:</label>
-                    <input type="number" name="stack" value="100" min="0" step="5">
-                    <u><p th:text="${p.position}"></p></u>
+                    <!-- <input
+                        type="number"
+                        name="stack"
+                        step="15"
+                        class="w-28 text-right bg-white border border-gray-400 rounded-xl px-3 py-1 shadow-sm focus:ring focus:ring-blue-300"/> -->
+                        <div class="flex items-center space-x-2">
+                            <!-- Minus-Button -->
+                            <button
+                                type="button"
+                                onclick="adjustStack(this, -5)"
+                                class="px-3 py-1 rounded-l-md bg-gray-200 hover:bg-gray-300 border border-gray-300"
+                            >-</button>
+
+                            <!-- Input-Feld -->
+                            <input
+                                type="number"
+                                name="stack"
+                                step="5"
+                                min="0"
+                                value="100"
+                                class="w-20 text-center border-t border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            />
+
+                            <!-- Plus-Button -->
+                            <button
+                                type="button"
+                                onclick="adjustStack(this, 5)"
+                                class="px-3 py-1 rounded-r-md bg-gray-200 hover:bg-gray-300 border border-gray-300"
+                            >+</button>
+                        </div>
+
+
+
+                <u><p th:text="${p.position}"></p></u>
 
                 <button type="submit" name="action" value="FOLD"
                     th:classappend="${p.action?.name() == 'FOLD'} ? ' selected'">Fold</button>
@@ -206,6 +239,18 @@
 <script>
     // document.getElementById("settingsMenu").open = true;
     document.getElementById("settingsMenu").open = true;
+
+
+    function adjustStack(button, change) {
+        const input = button.parentElement.querySelector('input[type="number"]');
+        const current = parseInt(input.value || 0);
+        const step = parseInt(input.step || 1);
+        const min = parseInt(input.min || 0);
+        let next = current + change;
+
+        if (next < min) next = min;
+        input.value = next;
+    }
 </script>
 
 </body>
