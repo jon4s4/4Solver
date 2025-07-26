@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jonas.solver.domain.model.Player;
-import jonas.solver.domain.model.Position;
 import jonas.solver.domain.service.GameService;
 
 @Controller
@@ -50,7 +49,7 @@ public String main(Model model){
     model.addAttribute("currentPlayer", gameService.getCurrentPlayer());
     model.addAttribute("allPlayers", gameService.getPlayers());
 
-    return "main";
+    return "mainPage";
 }
 
 
@@ -64,7 +63,7 @@ public String main(Model model){
         model.addAttribute("solution", solution);
         model.addAttribute("players", players);
 
-        return "main";
+        return "mainPage";
     }
 
     @PostMapping("/main/action")
@@ -76,14 +75,19 @@ public String main(Model model){
         model.addAttribute("allPlayers", gameService.getPlayers());
         model.addAttribute("currentPlayer", gameService.getCurrentPlayer());
 
-        return "main";
+        return "mainPage";
     }
 
     @PostMapping("/main/reset")
     public String resetActions(){
         gameService.resetActions();
 
-        return "main";
+        return "mainPage";
+    }
+
+    @GetMapping("/vier")
+    public String test(){
+        return "test";
     }
 
 }
