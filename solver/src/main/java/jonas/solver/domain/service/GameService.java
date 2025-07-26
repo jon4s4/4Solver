@@ -49,9 +49,6 @@ public class GameService {
     }
 
     public void processAction(String positionName, String action){
-        // handle out of bounds exception after action of BB
-        // handle next Actions after BB done and Flop coming
-
         Position position = Position.valueOf(positionName.toUpperCase());
         int selectedIndex = -1;
 
@@ -60,15 +57,26 @@ public class GameService {
             if(p.getPosition() == position){
                 selectedIndex = i;
                 p.setAction(Action.valueOf(action.toUpperCase()));
+                break;
             }
         }
+
         for(int i = 0; i < selectedIndex; i++){
-            if(allPlayers.get(i).getAction() == null){
-                currentPlayerIndex++;
-                allPlayers.get(i).setAction(Action.FOLD);
+            Player p = allPlayers.get(i);
+            if(p.getAction() == null) {
+                p.setAction(Action.FOLD);
             }
         }
-        currentPlayerIndex++;
-        if(currentPlayerIndex >= allPlayers.size()) currentPlayerIndex--; // temp fix
+
+        for(int i = selectedIndex + 1; i < allPlayers.size(); i++){
+            Player p = allPlayers.get(i);
+            p.setAction(null);
+        }
+
+        currentPlayerIndex = selectedIndex + 1;
+        if(currentPlayerIndex >= allPlayers.size()) {
+            currentPlayerIndex = allPlayers.size() - 1;
+        }
     }
+
 }

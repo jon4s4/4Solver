@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
         <a href="/settings" class="icon"><i class="fa fa-cog"></i></a>
         <div class="dropdown">
             <button class="dropdown-toggle">
-                <i class="fa fa-user-circle icon" style="font-size:x-large"></i> 
+                <i class="fa fa-user-circle icon" style="font-size:x-large"></i>
             </button>
             <div class="dropdown-menu">
                 <a href="#">Profil</a>
@@ -35,7 +35,7 @@
         </div>
     </div>
 </div>
-    
+
     <!-- <div class="rounds">
         <div>
             <p>Your Position:</p>
@@ -62,7 +62,7 @@
 
     <div class="main-layout">
         <nav class="tableSettings">
-            <details open>
+            <details id="settingsMenu">
                 <summary><p class="fa fa-gear"> Change</p></summary>
 
                 <form method="get" action="/table/format">
@@ -79,7 +79,7 @@
 
                     <button type="submit" name="format" value="spinandgo"
                             th:classappend="${format}=='spinandgo' ? 'selected'">Spin & Go</button>
-<!-- 
+<!--
                     <button type="submit" name="format" value="husng"
                             th:classappend="${format}=='husng' ? 'selected'">HU SnG</button> -->
                 </form>
@@ -146,7 +146,7 @@
                     <input type="hidden" name="position" th:value="${p.position}">
 
                     <label for="stack">Stack:</label>
-                    <input type="text" name="stack" value="100">
+                    <input type="number" name="stack" value="100" min="0" step="5">
                     <u><p th:text="${p.position}"></p></u>
 
                 <button type="submit" name="action" value="FOLD"
@@ -160,10 +160,10 @@
 
                 <button type="submit" name="action" value="ALLIN"
                     th:classappend="${p.action?.name() == 'ALLIN'} ? ' selected'">All-In</button>
-                </form>   
+                </form>
             </div>
         </div>
-        
+
     </div>
 
     <table class="hand-range">
@@ -183,7 +183,7 @@
             <tr><td>A2o</td><td>K2o</td><td>Q2o</td><td>J2o</td><td>T2o</td><td>92o</td><td>82o</td><td>72o</td><td>62o</td><td>52o</td><td>42o</td><td>32o</td><td class="pair">22</td></tr>
         </tbody>
     </table>
-    
+
     <!-- <table class="hand-range">
         <tbody>
             <tr><td>AA</td><td>AKs</td><td>AQs</td><td>AJs</td><td>ATs</td><td>A9s</td><td>A8s</td><td>A7s</td><td>A6s</td><td>A5s</td><td>A4s</td><td>A3s</td><td>A2s</td></tr>
@@ -201,7 +201,12 @@
             <tr><td>A2o</td><td>K2o</td><td>Q2o</td><td>J2o</td><td>T2o</td><td>92o</td><td>82o</td><td>72o</td><td>62o</td><td>52o</td><td>42o</td><td>32o</td><td>22</td></tr>
         </tbody>
     </table> -->
-    
+
+
+<script>
+    // document.getElementById("settingsMenu").open = true;
+    document.getElementById("settingsMenu").open = true;
+</script>
 
 </body>
 </html>
