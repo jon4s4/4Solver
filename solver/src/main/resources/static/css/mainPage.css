@@ -104,8 +104,8 @@ input{
 }
 
 .action-block input {
-    width: auto;              /* ← keine feste Breite von 90% */
-    margin: 0;                /* ← kein extra Abstand */
+    width: auto;
+    margin: 0;
     font-size: 0.8em;
     border-radius: 6px;
     border: 1px solid #555;
@@ -121,12 +121,12 @@ input{
     text-align: center;
 }
 
-.action-block button {
+.action-button {
     width: 100%;
     padding: 2px;
     margin: 2px 0;
     background-color: #4e4e4e2a;
-    color: rgb(206, 10, 91);
+    color: rgb(219, 219, 219);
     border: none;
     border-radius: 6px;
     font-size: 0.85em;
@@ -134,15 +134,11 @@ input{
     transition: background-color 0.2s ease;
 }
 
-.action-block button:hover {
+.action-button:hover {
     background-color: #ce0a5b;
     color: white;
 }
 
-.action-blocks button.selected {
-    background:#ce0a5b;
-    color:#fff;
-}
 .active {
     border: 2px solid #ce0a5b;
     /* background-color: #e6ffe6; */
