@@ -2,14 +2,8 @@ body{
     background-color: #202020;
     color: white;
 }
-p{
-    color: #dddddd;
-}
 tr{
     background-color: rgb(59, 104, 252);
-}
-input{
-    width: 50%;
 }
 
 .navbar {
@@ -95,16 +89,16 @@ input{
 }
 .action-block {
     display: inline-block;
+    width: fit-content;
     padding: 4px;
     margin: 10px;
     border: 1px solid rgb(155, 155, 155);
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: #242424;
     font-family: arial, "lucida console", sans-serif;
 }
 
 .action-block input {
-    width: auto;
     margin: 0;
     font-size: 0.8em;
     border-radius: 6px;
@@ -118,7 +112,6 @@ input{
     color: rgb(228, 228, 228);
     font-size: 0.9em;
     margin: 4px 0;
-    text-align: center;
 }
 
 .action-button {
@@ -150,16 +143,9 @@ input{
 .buttons p{
     color: #1f1f1f;
 }
-.rounds{
-    display: flex;
-    justify-content: space-evenly;
-}
-.rounds p{
-    margin: auto;
-}
 
 .tableSettings{
-    width: 220px;
+    width: auto;
     background-color: #1f1f1f;
     padding: 10px;
     color: white;
@@ -171,7 +157,7 @@ input{
 
 .tableSettings a,
 .tableSettings summary{
-    display: block;
+    display: inline-flex;
     color: white;
     text-decoration: none;
     padding: 10px;
