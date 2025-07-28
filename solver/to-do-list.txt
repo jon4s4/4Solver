@@ -1,0 +1,7 @@
+1. Action handlings:
+    - process stack size and update stack after action
+    - filter illegal actions out (raise more than available chips, 
+        maybe compress actions to maximum of 3 raises preflop, 
+        Big Blind should not be able to do an action when everyone already folded,)
+
+2. 

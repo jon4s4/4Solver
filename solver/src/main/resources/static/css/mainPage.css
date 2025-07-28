@@ -1,10 +1,23 @@
 body{
-    background-color: #202020;
+    background-color: #2c2c2c;
     color: white;
 }
 tr{
     background-color: rgb(59, 104, 252);
 }
+
+/* Entfernt Spinner in allen modernen Browsern */
+input[type="number"] {
+  -moz-appearance: textfield;      /* Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;        /* Chrome, Safari, Edge */
+  margin: 0;
+}
+
+
 
 .navbar {
     background-color: #1f1f1f;
@@ -86,13 +99,14 @@ tr{
 
 .action-blocks{
     display: flex;
+    background-color:#252525;
 }
 .action-block {
-    display: inline-block;
-    width: fit-content;
+    display: inline;
+    justify-content: center;
     padding: 4px;
     margin: 10px;
-    border: 1px solid rgb(155, 155, 155);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
     background-color: #242424;
     font-family: arial, "lucida console", sans-serif;
@@ -102,39 +116,51 @@ tr{
     margin: 0;
     font-size: 0.8em;
     border-radius: 6px;
-    border: 1px solid #555;
+    border: 1px solid #000000;
     background-color: #333;
     color: white;
 }
 
-
-.action-block p {
-    color: rgb(228, 228, 228);
-    font-size: 0.9em;
-    margin: 4px 0;
+.action-block input:focus{
+    border: 2px solid #ce0a5b; /* wird momentan noch überschattet von einem orangenen Rand, warum auch immer */
 }
 
-.action-button {
+.action-buttons {
     width: 100%;
     padding: 2px;
     margin: 2px 0;
     background-color: #4e4e4e2a;
-    color: rgb(219, 219, 219);
-    border: none;
+    color: rgb(214, 214, 214);
+    border: 1px solid black;
     border-radius: 6px;
     font-size: 0.85em;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
-.action-button:hover {
+.action-buttons:hover {
     background-color: #ce0a5b;
     color: white;
 }
 
+.action-buttons.selected {
+    background:#ce0a5b;
+    color:#fff;
+}
 .active {
     border: 2px solid #ce0a5b;
     /* background-color: #e6ffe6; */
+}
+
+.action-labels{
+    display: flex;
+    justify-content: space-between;
+}
+
+.plus-minus{
+    width: auto;
+    padding: 5px;
+    border: none;
 }
 
 .buttons{

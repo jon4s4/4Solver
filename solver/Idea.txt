@@ -1,4 +1,0 @@
-9 Forms:
-    1. click -> Sends action, stacksize, need to mark position (to index Player)
-    2. Controller gets request processes data and sends it back with marked action
-    3. next click

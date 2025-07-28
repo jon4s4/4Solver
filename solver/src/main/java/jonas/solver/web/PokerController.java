@@ -70,7 +70,7 @@ public String main(Model model){
     public String makeAction(@RequestParam("action") String action,
     @RequestParam("stack") int stack, @RequestParam("position") String positionName, Model model){
 
-        gameService.processAction(positionName, action);
+        gameService.processAction(positionName, action, stack); // complete processing stack
 
         model.addAttribute("allPlayers", gameService.getPlayers());
         model.addAttribute("currentPlayer", gameService.getCurrentPlayer());

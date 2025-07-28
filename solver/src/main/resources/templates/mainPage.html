@@ -146,51 +146,44 @@
                 <form method="post" action="/main/action">
                     <input type="hidden" name="position" th:value="${p.position}">
 
-                    <label for="stack">Stack:</label>
-                    <!-- <input
-                        type="number"
-                        name="stack"
-                        step="15"
-                        class="w-28 text-right bg-white border border-gray-400 rounded-xl px-3 py-1 shadow-sm focus:ring focus:ring-blue-300"/> -->
-                        <div class="flex items-center space-x-2">
-                            <!-- Minus-Button -->
+                    <div class="action-labels">
+                        <label for="stack" class="">Stack:</label>
+                        <u><p th:text="${p.position}"></p></u>
+                    </div>
+
+                        <div class="plus-minus">
                             <button
                                 type="button"
-                                onclick="adjustStack(this, -15)"
-                                class="px-3 py-1 rounded-l-md bg-gray-200 hover:bg-gray-300 border border-gray-300"
+                                onclick="adjustStack(this, -5)"
                             >-</button>
 
-                            <!-- Input-Feld -->
                             <input
                                 type="number"
                                 name="stack"
                                 min="0"
                                 value="100"
+                                class=""
                             />
 
-                            <!-- Plus-Button -->
                             <button
                                 type="button"
                                 onclick="adjustStack(this, 5)"
-                                class="px-3 py-1 rounded-r-md bg-gray-200 hover:bg-pink-500 border border-gray-300"
                             >+</button>
                         </div>
 
+                <div>
+                    <button class="action-buttons" type="submit" name="action" value="FOLD"
+                        th:classappend="${p.action?.name() == 'FOLD'} ? ' selected'">Fold</button>
 
+                    <button class="action-buttons" type="submit" name="action" value="RAISE"
+                        th:classappend="${p.action?.name() == 'RAISE'} ? ' selected'">Raise</button>
 
-                <u><p th:text="${p.position}"></p></u>
+                    <button class="action-buttons" type="submit" name="action" value="CALL"
+                        th:classappend="${p.action?.name() == 'CALL'} ? ' selected'">Call</button>
 
-                <button class="action-button" type="submit" name="action" value="FOLD"
-                    th:classappend="${p.action?.name() == 'FOLD'} ? ' selected'">Fold</button>
-
-                <button class="action-button" type="submit" name="action" value="RAISE"
-                    th:classappend="${p.action?.name() == 'RAISE'} ? ' selected'">Raise</button>
-
-                <button class="action-button" type="submit" name="action" value="CALL"
-                    th:classappend="${p.action?.name() == 'CALL'} ? ' selected'">Call</button>
-
-                <button class="action-button" type="submit" name="action" value="ALLIN"
-                    th:classappend="${p.action?.name() == 'ALLIN'} ? ' selected'">All-In</button>
+                    <button class="action-buttons" type="submit" name="action" value="ALLIN"
+                        th:classappend="${p.action?.name() == 'ALLIN'} ? ' selected'">All-In</button>
+                </div>
                 </form>
             </div>
         </div>
