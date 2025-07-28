@@ -14,6 +14,8 @@ import jonas.solver.domain.model.Position;
 public class GameService {
     private List<Player> allPlayers = new ArrayList<>();
     private int currentPlayerIndex = 0;
+    private int raisesInRound = 0;
+
     public GameService() {
         for(Position position: Position.values()){
             allPlayers.add(new Player(position, null, 100));
@@ -45,6 +47,7 @@ public class GameService {
         for(Player p: allPlayers){
             p.setAction(null);
         }
+        raisesInRound = 0;
         currentPlayerIndex = 0;
     }
 
@@ -63,7 +66,10 @@ public class GameService {
 
     private int revokeActionsOfFollowingPlayers(int selectedIndex) {
         for(int i = selectedIndex + 1; i < allPlayers.size(); i++){
-            Player p = allPlayers.get(i);
+            Player p = getPlayerAtI(i);
+            if(p.getAction() == Action.RAISE || p.getAction() == Action.ALLIN || p.getAction() == Action.CALL){
+                p.returnChips(raisesInRound);
+            }
             p.setAction(null);
         }
         return selectedIndex;
@@ -71,7 +77,7 @@ public class GameService {
 
     private int setFoldToSkippedPlayers(int selectedIndex) {
         for(int i = 0; i < selectedIndex; i++){
-            Player p = allPlayers.get(i);
+            Player p = getPlayerAtI(i);
             if(p.getAction() == null) {
                 p.setAction(Action.FOLD);
             }
@@ -83,16 +89,17 @@ public class GameService {
         Position position = Position.valueOf(positionName.toUpperCase());
 
         for(int i = 0; i < allPlayers.size(); i++){
-            Player p = allPlayers.get(i);
+            Player p = getPlayerAtI(i);
             if(p.getPosition() == position){
                 selectedIndex = i;
                 p.setAction(Action.valueOf(action.toUpperCase()));
                 switch(p.getAction()){
-                    case RAISE -> p.raise();
-                    case ALLIN -> p.allin();
-                    case CALL -> p.call();
+                    case RAISE -> {p.raise(raisesInRound); raisesInRound++;}
+                    case ALLIN -> {p.allin(); raisesInRound++;}
+                    case CALL -> p.call(raisesInRound);
                     case FOLD -> p.fold();
                 }
+                System.out.println("Stacksize: " + p.getStackSize());
                 break;
             }
         }

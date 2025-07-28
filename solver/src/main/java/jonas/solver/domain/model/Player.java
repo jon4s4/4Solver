@@ -5,20 +5,11 @@ public class Player {
     Hand hand;
     Position position;
     int stackSize;
-    int raisesInRound;
 
     public Player(Position position, Action action, int stack) {
         this.position = position;
         this.action = action;
         this.stackSize = stack;
-    }
-
-    public int getRaisesInRound() {
-        return raisesInRound;
-    }
-
-    public void setRaisesInRound(int raisesInRound) {
-        this.raisesInRound = raisesInRound;
     }
 
     public Action getAction() {
@@ -48,16 +39,15 @@ public class Player {
         this.stackSize = stackSize;
     }
 
-    public void raise(){
+    public void raise(int raisesInRound){
         double amount = switch (raisesInRound){
             case 0 -> 2.3;
             case 1 -> 8.0;
-            case 2 -> 20.0;
-            default -> stackSize;
+            case 2 -> 20.0; 
+            default -> stackSize; // TODO: fix if more than 3 raises occur
         };
         if(stackSize > amount){
             stackSize -= amount;
-            raisesInRound++;
         }else{
             throw new IllegalArgumentException("Nicht genug Chips für einen Allin");
         }
@@ -67,7 +57,7 @@ public class Player {
         stackSize = 0;
     }
 
-    public void call() {
+    public void call(int raisesInRound) {
         double amount = switch (raisesInRound){
             case 0 -> 1;
             case 1 -> 2.3;
@@ -81,6 +71,17 @@ public class Player {
     }
 
     public void fold() {
+    }
+
+    public void returnChips(int raisesInRound) {
+        switch (raisesInRound) {
+            case 0 -> stackSize += 1.0;
+            case 1 -> stackSize += 2.3;
+            case 2 -> stackSize += 8.0;
+            case 3 -> stackSize += 20.0;
+            default -> throw new IllegalArgumentException("Edge case found");
+        }
+        raisesInRound--;
     }
     
 
