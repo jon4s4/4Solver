@@ -99,11 +99,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .action-blocks{
     display: flex;
+    flex-wrap: wrap;
     background-color:#252525;
+    border-radius: 10px;
 }
 .action-block {
-    display: inline;
-    justify-content: center;
+    width: 140px;
     padding: 4px;
     margin: 10px;
     border: 1px solid rgb(0, 0, 0);
@@ -113,6 +114,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .action-block input {
+    display: flex;
+    width: 50px;
+    max-width: 100%;
     margin: 0;
     font-size: 0.8em;
     border-radius: 6px;
@@ -122,12 +126,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .action-block input:focus{
+    outline: none;
     border: 2px solid #ce0a5b; /* wird momentan noch überschattet von einem orangenen Rand, warum auch immer */
 }
 
 .action-buttons {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    padding: 2px;
     margin: 2px 0;
     background-color: #4e4e4e2a;
     color: rgb(214, 214, 214);
@@ -158,9 +164,16 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .plus-minus{
-    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     padding: 5px;
     border: none;
+}
+
+.plus-minus-input{
+    display: flex;
+    justify-content: center;
 }
 
 .buttons{
