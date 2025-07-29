@@ -44,7 +44,7 @@ public class Player {
             case 0 -> 2.3;
             case 1 -> 8.0;
             case 2 -> 20.0; 
-            default -> stackSize; // TODO: fix if more than 3 raises occur
+            default -> 20.0;
         };
         if(stackSize > amount){
             stackSize -= amount;
@@ -72,17 +72,9 @@ public class Player {
 
     public void fold() {
     }
-
-    public void returnChips(int raisesInRound) {
-        switch (raisesInRound) {
-            case 0 -> stackSize += 1.0;
-            case 1 -> stackSize += 2.3;
-            case 2 -> stackSize += 8.0;
-            case 3 -> stackSize += 20.0;
-            default -> throw new IllegalArgumentException("Edge case found");
-        }
-        raisesInRound--;
-    }
     
+    public void resetChips(int defaultStack){
+        this.stackSize = defaultStack;
+    }
 
 }

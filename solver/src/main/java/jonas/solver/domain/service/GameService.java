@@ -56,7 +56,7 @@ public class GameService {
         // side effect on selectedIndex
         selectedIndex = setPlayerAction(positionName, action, selectedIndex);
         selectedIndex = setFoldToSkippedPlayers(selectedIndex);
-        selectedIndex = revokeActionsOfFollowingPlayers(selectedIndex);
+        selectedIndex = revokeActionsOfFollowingPlayers(selectedIndex, stack);
 
         currentPlayerIndex = selectedIndex + 1;
         if(currentPlayerIndex >= allPlayers.size()) {
@@ -64,12 +64,14 @@ public class GameService {
         }
     }
 
-    private int revokeActionsOfFollowingPlayers(int selectedIndex) {
+    private int revokeActionsOfFollowingPlayers(int selectedIndex, int stack) {
         for(int i = selectedIndex + 1; i < allPlayers.size(); i++){
             Player p = getPlayerAtI(i);
-            if(p.getAction() == Action.RAISE || p.getAction() == Action.ALLIN || p.getAction() == Action.CALL){
-                p.returnChips(raisesInRound);
+            if(p.getAction() == Action.RAISE || p.getAction() == Action.ALLIN){
+                raisesInRound--;
+                p.resetChips(stack);
             }
+            p.resetChips(stack);
             p.setAction(null);
         }
         return selectedIndex;
@@ -99,7 +101,6 @@ public class GameService {
                     case CALL -> p.call(raisesInRound);
                     case FOLD -> p.fold();
                 }
-                System.out.println("Stacksize: " + p.getStackSize());
                 break;
             }
         }
