@@ -1,7 +1,7 @@
 1. Action handlings:
-    - process stack size and update stack after action
-    - filter illegal actions out (raise more than available chips, 
-        maybe compress actions to maximum of 3 raises preflop, 
-        Big Blind should not be able to do an action when everyone already folded,)
+    - current Position should be highlighted
+        - render strategy table for every player after each action?
+        - render only the table of current player?
+    - only viable actions should be an option (not more than stacksize should be playable)
 
-2. 
+2. json or csv files of most positions plus EV

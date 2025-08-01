@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-/* Entfernt Spinner in allen modernen Browsern */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;        /* Chrome, Safari, Edge */
