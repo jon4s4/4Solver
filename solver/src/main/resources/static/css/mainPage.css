@@ -127,7 +127,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .action-block input:focus{
     outline: none;
-    border: 2px solid #ce0a5b; /* wird momentan noch überschattet von einem orangenen Rand, warum auch immer */
+    border: 2px solid #ce0a5b;
 }
 
 .action-buttons {
@@ -153,6 +153,12 @@ input[type="number"]::-webkit-outer-spin-button {
     background:#ce0a5b;
     color:#fff;
 }
+
+.action-block.selected-form {
+    box-shadow: 0 0 0 3px #ce0a5b;
+    background-color: #2e2e2e;
+}
+
 .active {
     border: 2px solid #ce0a5b;
     /* background-color: #e6ffe6; */

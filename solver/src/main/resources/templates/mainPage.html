@@ -78,9 +78,9 @@
 
                 <button type="submit" name="format" value="spinandgo"
                         th:classappend="${format}=='spinandgo' ? 'selected'">Spin & Go</button>
-<!--
-                <button type="submit" name="format" value="husng"
-                        th:classappend="${format}=='husng' ? 'selected'">HU SnG</button> -->
+                <!--
+                    <button type="submit" name="format" value="husng"
+                            th:classappend="${format}=='husng' ? 'selected'">HU SnG</button> -->
             </form>
 
             <form method="get" action="/table/format">
@@ -242,6 +242,23 @@
         if (next < min) next = min;
         input.value = next;
     }
+
+/*    document.addEventListener("DOMContentLoaded", () => {
+        const blocks = document.querySelectorAll(".action-block");
+
+        blocks.forEach(block => {
+            block.addEventListener("click", (e) => {
+                // Verhindert, dass ein Button-Klick das Formular abschickt
+                if (e.target.tagName.toLowerCase() === "button") return;
+
+                // Entferne vorherige Auswahl
+                blocks.forEach(b => b.classList.remove("selected-form"));
+
+                // Markiere den geklickten Block
+                block.classList.add("selected-form");
+            });
+        });
+    }); */
 </script>
 
 </body>

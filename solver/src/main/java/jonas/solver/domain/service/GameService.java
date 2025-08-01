@@ -52,6 +52,7 @@ public class GameService {
     }
 
     public void processAction(String positionName, String action, int stack){
+        // If player does Action twice, wrong stackSize might be set to all other players
         int selectedIndex = -1;
         // side effect on selectedIndex
         selectedIndex = setPlayerAction(positionName, action, selectedIndex);
@@ -101,7 +102,7 @@ public class GameService {
                     case CALL -> p.call(raisesInRound);
                     case FOLD -> p.fold();
                 }
-                break;
+                return selectedIndex;
             }
         }
         return selectedIndex;
