@@ -61,10 +61,9 @@ public class GameService {
         currentPlayerIndex = 0;
     }
 
-    public void processAction(String positionName, String action, int stack){
+    public void processAction(String positionName, String action /*, int stack */){
         Player targetPlayer = getPlayerByPosition(positionName);
 
-        // side effect on selectedIndex
         setPlayerAction(targetPlayer, action);
         setFoldToSkippedPlayers();
         revokeActionsOfFollowingPlayers(100);

@@ -144,34 +144,34 @@
             <form method="post" action="/main/action">
                 <input type="hidden" name="position" th:value="${p.position}">
 
-                <div class="action-labels">
-                    <label for="stack" class="">Stack:</label>
-                    <button type="submit" class="position-label">
+                <div class="position-label">
+                    <button type="submit" class="">
                         <p th:text="${p.position}">Example</p>
                     </button>
                 </div>
 
                 
-                <div class="plus-minus-input">
-                    <div class="plus-minus">
-                            <button
+                <div class="">
+                    <div class="stack">
+                            <!-- <button
                                 type="button"
                                 onclick="adjustStack(this, -5)"
-                            >-</button>
-
-                            <input
+                            >-</button> -->
+                            <label for="stack" class="">Stack (BB):</label>
+                            <!-- <input
                                 type="number"
                                 name="stack"
                                 min="0"
                                 value="100"
                                 th:value="${p.stackSize}"
                                 class=""
-                            />
+                            /> -->
+                            <p th:text="${p.getStackSize()}">444</p>
 
-                            <button
+                            <!-- <button
                                 type="button"
                                 onclick="adjustStack(this, 5)"
-                            >+</button>
+                            >+</button> -->
                         </div>
                 </div>
 
