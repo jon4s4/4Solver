@@ -57,9 +57,9 @@ public class GameService {
         // side effect on selectedIndex
         selectedIndex = setPlayerAction(positionName, action, selectedIndex);
         selectedIndex = setFoldToSkippedPlayers(selectedIndex);
-        selectedIndex = revokeActionsOfFollowingPlayers(selectedIndex, stack);
+        selectedIndex = revokeActionsOfFollowingPlayers(selectedIndex, 100);
 
-        currentPlayerIndex = selectedIndex + 1;
+        currentPlayerIndex = selectedIndex;
         if(currentPlayerIndex >= allPlayers.size()) {
             currentPlayerIndex = allPlayers.size() - 1;
         }
@@ -95,6 +95,7 @@ public class GameService {
             Player p = getPlayerAtI(i);
             if(p.getPosition() == position){
                 selectedIndex = i;
+                if (action == null) return selectedIndex;
                 p.setAction(Action.valueOf(action.toUpperCase()));
                 switch(p.getAction()){
                     case RAISE -> {p.raise(raisesInRound); raisesInRound++;}
@@ -106,6 +107,15 @@ public class GameService {
             }
         }
         return selectedIndex;
+    }
+
+    public Player getPlayerByPosition(String position) {
+        for(Player p: allPlayers){
+            if (p.getPosition().name() == position.toUpperCase()) { // maybe bug here
+                return p;
+            }
+        }
+        return null;
     }
 
 }

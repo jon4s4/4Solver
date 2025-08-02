@@ -41,16 +41,16 @@ public class PokerController {
         return "profile";
     }
 
-@GetMapping("/main")
-public String main(Model model){
-    model.addAttribute("format", "");
-    model.addAttribute("solution", "");
-    model.addAttribute("players", 0);
-    model.addAttribute("currentPlayer", gameService.getCurrentPlayer());
-    model.addAttribute("allPlayers", gameService.getPlayers());
+    @GetMapping("/main")
+    public String main(Model model){
+        model.addAttribute("format", "");
+        model.addAttribute("solution", "");
+        model.addAttribute("players", 0);
+        model.addAttribute("currentPlayer", gameService.getCurrentPlayer());
+        model.addAttribute("allPlayers", gameService.getPlayers());
 
-    return "mainPage";
-}
+        return "mainPage";
+    }
 
 
     @GetMapping("/table/format")
@@ -67,7 +67,7 @@ public String main(Model model){
     }
 
     @PostMapping("/main/action")
-    public String makeAction(@RequestParam("action") String action,
+    public String makeAction(@RequestParam(value = "action", required=false) String action,
     @RequestParam("stack") int stack, @RequestParam("position") String positionName, Model model){
 
         gameService.processAction(positionName, action, stack); // complete processing stack
@@ -77,6 +77,15 @@ public String main(Model model){
 
         return "mainPage";
     }
+
+    // @PostMapping("/main/selectPosition")
+    // public String selectPosition(@RequestParam("position") String position, Model model){
+    //     Player p = gameService.getPlayerByPosition(position);
+    //     model.addAttribute("currentPlayer", p);
+    //     model.addAttribute("allPlayers", gameService.getPlayers());
+
+    //     return "main";
+    // }
 
     @PostMapping("/main/reset")
     public String resetActions(){
