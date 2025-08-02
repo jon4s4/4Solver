@@ -97,6 +97,10 @@ public class GameService {
 
     private void setPlayerAction(Player targetPlayer, String action) {
         Position position = targetPlayer.getPosition();
+        if(targetPlayer.getAction() != null){
+            if(targetPlayer.getAction() == Action.ALLIN || targetPlayer.getAction() == Action.RAISE) raisesInRound--;
+            targetPlayer.resetChips(100);
+        }
 
         for(int i = 0; i < allPlayers.size(); i++){
             Player p = getPlayerAtI(i);
