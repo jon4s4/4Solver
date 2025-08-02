@@ -18,7 +18,7 @@ public class GameService {
 
     public GameService() {
         for(Position position: Position.values()){
-            allPlayers.add(new Player(position, null, 100));
+            allPlayers.add(new Player(position, null, 100)); // 100 default StackSize, TODO: change if custom amount is implemented
         }
     }
 
@@ -28,6 +28,16 @@ public class GameService {
 
     public Player getPlayerAtI(int index){
         return allPlayers.get(index);
+    }
+
+    public Player getPlayerByPosition(String position) {
+        for(int i = 0; i < allPlayers.size(); i++){
+            if(getPlayerAtI(i).getPosition().name().equalsIgnoreCase(position)){
+                currentPlayerIndex = i;
+                return getPlayerAtI(i);
+            }
+        }
+        return null;
     }
 
     public Player getCurrentPlayer(){
@@ -52,21 +62,20 @@ public class GameService {
     }
 
     public void processAction(String positionName, String action, int stack){
-        // If player does Action twice, wrong stackSize might be set to all other players
-        int selectedIndex = -1;
-        // side effect on selectedIndex
-        selectedIndex = setPlayerAction(positionName, action, selectedIndex);
-        selectedIndex = setFoldToSkippedPlayers(selectedIndex);
-        selectedIndex = revokeActionsOfFollowingPlayers(selectedIndex, 100);
+        Player targetPlayer = getPlayerByPosition(positionName);
 
-        currentPlayerIndex = selectedIndex;
+        // side effect on selectedIndex
+        setPlayerAction(targetPlayer, action);
+        setFoldToSkippedPlayers();
+        revokeActionsOfFollowingPlayers(100);
+
         if(currentPlayerIndex >= allPlayers.size()) {
             currentPlayerIndex = allPlayers.size() - 1;
         }
     }
 
-    private int revokeActionsOfFollowingPlayers(int selectedIndex, int stack) {
-        for(int i = selectedIndex + 1; i < allPlayers.size(); i++){
+    private void revokeActionsOfFollowingPlayers(int stack) {
+        for(int i = currentPlayerIndex + 1; i < allPlayers.size(); i++){
             Player p = getPlayerAtI(i);
             if(p.getAction() == Action.RAISE || p.getAction() == Action.ALLIN){
                 raisesInRound--;
@@ -75,27 +84,25 @@ public class GameService {
             p.resetChips(stack);
             p.setAction(null);
         }
-        return selectedIndex;
     }
 
-    private int setFoldToSkippedPlayers(int selectedIndex) {
-        for(int i = 0; i < selectedIndex; i++){
+    private void setFoldToSkippedPlayers() {
+        for(int i = 0; i < currentPlayerIndex; i++){
             Player p = getPlayerAtI(i);
             if(p.getAction() == null) {
                 p.setAction(Action.FOLD);
             }
         }
-        return selectedIndex;
     }
 
-    private int setPlayerAction(String positionName, String action, int selectedIndex) {
-        Position position = Position.valueOf(positionName.toUpperCase());
+    private void setPlayerAction(Player targetPlayer, String action) {
+        Position position = targetPlayer.getPosition();
 
         for(int i = 0; i < allPlayers.size(); i++){
             Player p = getPlayerAtI(i);
             if(p.getPosition() == position){
-                selectedIndex = i;
-                if (action == null) return selectedIndex;
+                currentPlayerIndex = i;
+                if (action == null) return;
                 p.setAction(Action.valueOf(action.toUpperCase()));
                 switch(p.getAction()){
                     case RAISE -> {p.raise(raisesInRound); raisesInRound++;}
@@ -103,19 +110,8 @@ public class GameService {
                     case CALL -> p.call(raisesInRound);
                     case FOLD -> p.fold();
                 }
-                return selectedIndex;
             }
         }
-        return selectedIndex;
-    }
-
-    public Player getPlayerByPosition(String position) {
-        for(Player p: allPlayers){
-            if (p.getPosition().name() == position.toUpperCase()) { // maybe bug here
-                return p;
-            }
-        }
-        return null;
     }
 
 }
