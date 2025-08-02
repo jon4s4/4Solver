@@ -144,8 +144,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .action-buttons:hover {
-    background-color: #ce0a5b;
-    color: white;
+    background-color: #444;
 }
 
 .action-buttons.selected {
@@ -214,7 +213,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .tableSettings{
     width: auto;
-    background-color: #1f1f1f;
+    background-color: #363636;
     padding: 10px;
     color: white;
     padding: 10px;
