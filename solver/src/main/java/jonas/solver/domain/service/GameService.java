@@ -69,7 +69,7 @@ public class GameService {
         revokeActionsOfFollowingPlayers(100);
 
         if(currentPlayerIndex >= allPlayers.size()) {
-            currentPlayerIndex = allPlayers.size() - 1;
+            return; // TODO: handle correctly
         }
     }
 

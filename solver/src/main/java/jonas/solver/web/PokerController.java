@@ -68,7 +68,7 @@ public class PokerController {
 
     @PostMapping("/main/action")
     public String makeAction(@RequestParam(value = "action", required=false) String action,
-    /*@RequestParam("stack") int stack */ @RequestParam("position") String positionName, Model model){
+    /*@RequestParam("stack") int stack */ @RequestParam("position") String positionName, Model model){ // TODO: handle label-button click correctly
 
         gameService.processAction(positionName, action); // complete processing stack
 
@@ -77,15 +77,6 @@ public class PokerController {
 
         return "mainPage";
     }
-
-    // @PostMapping("/main/selectPosition")
-    // public String selectPosition(@RequestParam("position") String position, Model model){
-    //     Player p = gameService.getPlayerByPosition(position);
-    //     model.addAttribute("currentPlayer", p);
-    //     model.addAttribute("allPlayers", gameService.getPlayers());
-
-    //     return "main";
-    // }
 
     @PostMapping("/main/reset")
     public String resetActions(){
