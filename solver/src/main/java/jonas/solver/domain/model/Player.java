@@ -2,7 +2,7 @@ package jonas.solver.domain.model;
 
 public class Player {
     Action action;
-    Hand hand;
+    String hand;
     Position position;
     int stackSize;
 
@@ -18,10 +18,10 @@ public class Player {
     public void setAction(Action action) {
         this.action = action;
     }
-    public Hand getHand() {
+    public String getHand() {
         return hand;
     }
-    public void setHand(Hand hand) {
+    public void setHand(String hand) {
         this.hand = hand;
     }
     public Position getPosition() {

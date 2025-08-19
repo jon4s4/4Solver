@@ -1,0 +1,9 @@
+position,hand,action
+UTG,AA,raise
+UTG,KK,raise
+UTG,AQs,call
+UTG,JTs,fold
+BTN,AA,raise
+BTN,A2s,raise
+BTN,KTs,call
+BTN,65s,fold

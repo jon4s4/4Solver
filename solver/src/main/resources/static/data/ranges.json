@@ -1,0 +1,23 @@
+{
+  "UTG": {
+    "hands": {
+      "AA": "raise",
+      "KK": "raise",
+      "QQ": "raise",
+      "AKs": "raise",
+      "AQs": "call",
+      "JTs": "fold"
+    }
+  },
+  "BTN": {
+    "hands": {
+      "AA": "raise",
+      "KK": "raise",
+      "QQ": "raise",
+      "AKs": "raise",
+      "A2s": "raise",
+      "KTs": "call",
+      "65s": "fold"
+    }
+  }
+}
