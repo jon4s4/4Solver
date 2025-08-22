@@ -15,7 +15,7 @@ public class RangeService {
         List<RangeEntry> ranges = new ArrayList<>();
 
         try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
-            getClass().getResourceAsStream("/ranges.csv")
+            getClass().getResourceAsStream("/data/ranges.csv")
         ))){
             String line;
             boolean first = true;
@@ -26,6 +26,10 @@ public class RangeService {
                 }
                 String[] parts = line.split(",");
                 ranges.add(new RangeEntry(parts[0], parts[1], parts[2]));
+            }
+            for(RangeEntry re: ranges){
+                System.out.println("Action: " + re.getAction());
+                System.out.println("Hand: " + re.getHand());
             }
         }catch(Exception e){
             e.printStackTrace();
