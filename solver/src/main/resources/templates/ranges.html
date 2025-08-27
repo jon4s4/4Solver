@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" href="../static/css/ranges.css"
+    th:href="@{/css/ranges.css}">
+</head>
+<body>
+<h2 style="text-align: center;">Poker Ranges</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Position</th>
+        <th>Hand</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="range : ${ranges}"
+        th:class="${range.action}">
+        <td th:text="${range.position}"></td>
+        <td th:text="${range.hand}"></td>
+        <td th:text="${range.action}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
