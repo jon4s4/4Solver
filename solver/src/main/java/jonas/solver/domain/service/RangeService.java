@@ -27,7 +27,7 @@ public class RangeService {
                     continue;
                 }
                 String[] parts = line.split(",");
-                ranges.add(new RangeEntry(parts[0], parts[1], Double.parseDouble(parts[2])));
+                ranges.add(new RangeEntry(parts[0], Double.parseDouble(parts[1]), parts[2]));
             }
 
         } catch (Exception e) {

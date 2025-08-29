@@ -8,6 +8,6 @@ th, td {
     padding: 8px;
     text-align: center;
 }
-.raise { background-color: #f44336; color: white; }
-.call { background-color: #4CAF50; color: white; }
-.fold { background-color: #2196F3; color: white; }
+.RAISE { background-color: #f44336; color: white; }
+.CALL { background-color: #4CAF50; color: white; }
+.FOLD { background-color: #2196F3; color: white; }
