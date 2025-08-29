@@ -4,7 +4,7 @@
     th:href="@{/css/ranges.css}">
 </head>
 <body>
-<h2 th:text="'Ranges: ' + ${scenario}"></h2>
+<h2 th:text="'Ranges: ' + ${scenario}">VIER</h2>
 <table>
     <thead>
     <tr>
@@ -15,9 +15,9 @@
     </thead>
     <tbody>
     <tr th:each="range : ${ranges}" th:class="${range.action}">
-        <td th:text="${range.hand}"></td>
-        <td th:text="${range.action}"></td>
-        <td th:text="${range.ev}"></td>
+        <td th:text="${range.hand}">AsKh</td>
+        <td th:text="${range.action}">RAISE</td>
+        <td th:text="${range.ev}">0.5</td>
     </tr>
     </tbody>
 </table>
