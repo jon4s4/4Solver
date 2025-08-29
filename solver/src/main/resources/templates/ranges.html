@@ -4,23 +4,21 @@
     th:href="@{/css/ranges.css}">
 </head>
 <body>
-<h2 style="text-align: center;">Poker Ranges</h2>
+<h2 th:text="'Ranges: ' + ${scenario}"></h2>
 <table>
     <thead>
     <tr>
-        <th>Position</th>
         <th>Hand</th>
         <th>Action</th>
+        <th>EV</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="range : ${ranges}"
-        th:class="${range.action}">
-        <td th:text="${range.position}"></td>
+    <tr th:each="range : ${ranges}" th:class="${range.action}">
         <td th:text="${range.hand}"></td>
         <td th:text="${range.action}"></td>
+        <td th:text="${range.ev}"></td>
     </tr>
     </tbody>
 </table>
-</body>
-</html>
+
