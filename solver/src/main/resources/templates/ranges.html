@@ -4,21 +4,28 @@
     th:href="@{/css/ranges.css}">
 </head>
 <body>
-<h2 th:text="'Ranges: ' + ${scenario}">VIER</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Hand</th>
-        <th>Action</th>
-        <th>EV</th>
-    </tr>
-    </thead>
+<h2 th:text="'Ranges: ' + ${matchup}"></h2>
+
+<style>
+  .empty { background: #d3d3d3; color: #666; }
+  .raise { background: #81c784; color: #111; }
+  .call  { background: #64b5f6; color: #111; }
+  .fold  { background: #e57373; color: #111; }
+</style>
+
+<table class="range">
     <tbody>
-    <tr th:each="range : ${ranges}" th:class="${range.action}">
-        <td th:text="${range.hand}">AsKh</td>
-        <td th:text="${range.action}">RAISE</td>
-        <td th:text="${range.ev}">0.5</td>
+    <tr th:each="r1, i : ${ranks}">
+        <td th:each="r2, j : ${ranks}"
+            th:with="hand=${i.index == j.index ? r1 + r2 : (i.index < j.index ? r1 + r2 + 's' : r1 + r2 + 'o')},
+                    data=${hands[hand]}"
+            th:class="${data != null} ? ${#strings.toLowerCase(data.action)} : 'empty'"
+            th:title="${data != null} ? 'EV: ' + ${data.ev} : 'No data'"
+            th:text="${hand}">
+        </td>
     </tr>
     </tbody>
+</table>
+
 </table>
 
