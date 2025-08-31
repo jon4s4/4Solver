@@ -17,8 +17,11 @@
     <tbody>
     <tr th:each="r1, i : ${ranks}">
         <td th:each="r2, j : ${ranks}"
-            th:with="hand=${i.index == j.index ? r1 + r2 : (i.index < j.index ? r1 + r2 + 's' : r1 + r2 + 'o')},
-                    data=${hands[hand]}"
+            th:with="hi=${i.index <= j.index ? r1 : r2},
+                lo=${i.index <= j.index ? r2 : r1},
+                hand=${i.index == j.index ? r1 + r2 
+                    : (i.index < j.index ? hi + lo + 's' : hi + lo + 'o')},
+                data=${hands[hand]}"
             th:class="${data != null} ? ${#strings.toLowerCase(data.action)} : 'empty'"
             th:title="${data != null} ? 'EV: ' + ${data.ev} : 'No data'"
             th:text="${hand}">
