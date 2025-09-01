@@ -30,7 +30,7 @@ public class RangesController {
     @GetMapping("ranges")
     public String rangesInit(Model model){
         Map<String, HandRange> hands = rangeService.loadRanges("utg_vs_bb.csv");
-        
+        System.out.println("Geladene Keys: " + hands.keySet());
         model.addAttribute("hands", hands);
         model.addAttribute("matchup", "utg_vs_bb");
 
@@ -40,7 +40,7 @@ public class RangesController {
     @GetMapping("/ranges/{filename}")
     public String showRanges(Model model, @PathVariable("filename") String filename){
         Map<String, HandRange> hands = rangeService.loadRanges(filename + ".csv");
-        model.addAttribute("scenario", hands);
+        model.addAttribute("hands", hands);
         model.addAttribute("matchup", filename);
         return "ranges";
     }
