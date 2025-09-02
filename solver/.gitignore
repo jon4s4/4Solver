@@ -40,3 +40,6 @@ out/
 ### Frontend ###
 /src/main/frontend/node_modules/*
 /src/main/frontend/tailwind.config.js
+
+###data###
+/src/main/resources/data/ranges
