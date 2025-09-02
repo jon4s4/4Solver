@@ -29,7 +29,7 @@ public class RangeService {
                     continue;
                 }
                 String[] parts = line.split(",");
-                String key = canonical(parts[0]);
+                String key = parts[0];
                 hands.put(key, new HandRange(Double.parseDouble(parts[1]), parts[2]));
             }
 
@@ -37,23 +37,6 @@ public class RangeService {
             e.printStackTrace();
         }
         return hands;
-    }
-
-    private String canonical(String hand) {
-        hand = hand.trim().toUpperCase(); // AKS, AKo, AA
-        if (hand.length() == 2) return hand; // Paare
-        
-        String r1 = hand.substring(0,1);
-        String r2 = hand.substring(1,2);
-        char suffix = hand.charAt(2); // S oder O
-
-        int i1 = RANKS.indexOf(r1);
-        int i2 = RANKS.indexOf(r2);
-
-        String hi = (i1 <= i2) ? r1 : r2;
-        String lo = (i1 <= i2) ? r2 : r1;
-
-        return hi + lo + suffix; // z.B. immer AKs statt KAs
     }
 
 }
