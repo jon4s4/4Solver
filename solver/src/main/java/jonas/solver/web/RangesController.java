@@ -44,4 +44,13 @@ public class RangesController {
         model.addAttribute("matchup", filename);
         return "ranges";
     }
+
+    @GetMapping("/ranges/default")
+    public String showDefault(Model model){
+        Map<String, HandRange> hands = rangeService.loadInitRanges();
+        model.addAttribute("hands", hands);
+        model.addAttribute("matchup", "default matchup");
+
+        return "ranges";
+    }
 }

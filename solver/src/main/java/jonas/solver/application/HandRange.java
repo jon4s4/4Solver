@@ -4,9 +4,9 @@ import jonas.solver.domain.model.Action;
 
 public class HandRange {
     double ev;
-    String action;
+    Action action;
     
-    public HandRange(double ev, String action) {
+    public HandRange(double ev, Action action) {
         this.ev = ev;
         this.action = action;
     }
@@ -17,10 +17,10 @@ public class HandRange {
     public void setEv(double ev) {
         this.ev = ev;
     }
-    public String getAction() {
+    public Action getAction() {
         return action;
     }
-    public void setAction(String action) {
+    public void setAction(Action action) {
         this.action = action;
     }
 
